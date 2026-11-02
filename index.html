@@ -3,56 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>數字王國奇幻冒險・1到30數數大挑戰 (慢速朗讀・正數倒數・語音辨識)</title>
+  <title>數字王國奇幻冒險・1到30數數大挑戰 (數量數數・聽力填空)</title>
   <!-- Tailwind CSS provided by gstatic -->
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
-    @keyframes bounce-slow {
+    @keyframes float-gentle {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-6px); }
     }
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); transform: scale(1.02); }
-      50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.9); transform: scale(1.06); }
+    @keyframes coin-pop {
+      0% { transform: scale(0.5) translateY(10px); opacity: 0; }
+      50% { transform: scale(1.2) translateY(-10px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
     }
-    @keyframes mic-wave {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.25); opacity: 0.2; }
-    }
-    @keyframes shake-gentle {
+    @keyframes shake-wrong {
       0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-6px); }
-      40%, 80% { transform: translateX(6px); }
+      15%, 45%, 75% { transform: translateX(-10px) rotate(-1.5deg); }
+      30%, 60%, 90% { transform: translateX(10px) rotate(1.5deg); }
     }
-    @keyframes celebration-pop {
-      0% { transform: scale(0.6); opacity: 0; }
-      70% { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
+    @keyframes cry-bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.18); }
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+    @keyframes sound-wave {
+      0%, 100% { height: 8px; }
+      50% { height: 26px; }
     }
 
-    .animate-bounce-slow { animation: bounce-slow 2.5s ease-in-out infinite; }
-    .animate-pulse-glow { animation: pulse-glow 1.2s infinite ease-in-out; }
-    .animate-mic-wave { animation: mic-wave 1.5s infinite ease-out; }
-    .animate-shake { animation: shake-gentle 0.4s ease-in-out; }
-    .animate-celebrate { animation: celebration-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .animate-float { animation: float-gentle 3s ease-in-out infinite; }
+    .animate-coin { animation: coin-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .animate-shake { animation: shake-wrong 0.5s ease-in-out; }
+    .animate-cry { animation: cry-bounce 0.75s ease-in-out infinite; }
+    .animate-pulse-gold { animation: pulse-ring 1.5s infinite; }
+
+    .wave-bar-1 { animation: sound-wave 0.8s ease-in-out infinite; }
+    .wave-bar-2 { animation: sound-wave 0.8s ease-in-out 0.2s infinite; }
+    .wave-bar-3 { animation: sound-wave 0.8s ease-in-out 0.4s infinite; }
+    .wave-bar-4 { animation: sound-wave 0.8s ease-in-out 0.1s infinite; }
 
     .no-select {
       user-select: none;
       -webkit-user-select: none;
-    }
-
-    /* Custom Scrollbar */
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: rgba(241, 245, 249, 0.6);
-      border-radius: 8px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 8px;
     }
 
     .number-font {
@@ -64,13 +60,13 @@
 <body class="bg-gradient-to-br from-amber-50 via-sky-50 to-emerald-50 min-h-screen text-slate-800 font-sans p-2 sm:p-4 antialiased no-select">
 
   <!-- Main Container -->
-  <div class="max-w-5xl mx-auto flex flex-col gap-3 sm:gap-4 relative pb-10">
+  <div class="max-w-4xl mx-auto flex flex-col gap-3 sm:gap-4 relative pb-10">
 
     <!-- Top Global Header -->
     <header class="bg-white/95 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-md border-2 border-amber-200 flex flex-wrap items-center justify-between gap-3">
       <!-- Title & Branding -->
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-400 flex items-center justify-center text-3xl shadow-md text-white animate-bounce-slow">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-400 flex items-center justify-center text-3xl shadow-md text-white animate-float">
           🦁
         </div>
         <div>
@@ -83,18 +79,22 @@
             </span>
           </div>
           <p class="text-xs sm:text-sm text-slate-500 font-bold">
-            慢速朗讀引導・正數與倒數挑戰・語音大聲說判定
+            看數量選數字・聽聲音填空・收銀機錢幣獎勵
           </p>
         </div>
       </div>
 
-      <!-- Header Status: Stars & Settings -->
+      <!-- Money Bank (錢幣撲滿) & Controls -->
       <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
-        <!-- Stars Count -->
-        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-50 border-2 border-amber-300 shadow-xs">
-          <span class="text-lg">⭐</span>
-          <span class="text-xs font-black text-amber-800">星星金幣：</span>
-          <span id="global-stars-text" class="text-base font-black text-amber-600 number-font">0</span>
+        <!-- Coin Bank -->
+        <div class="flex items-center gap-2 px-4 py-2 rounded-2xl bg-gradient-to-r from-amber-100 to-yellow-200 border-2 border-amber-400 shadow-sm animate-pulse-gold">
+          <span class="text-2xl">🪙</span>
+          <div class="flex flex-col leading-tight">
+            <span class="text-[10px] font-black text-amber-800 uppercase">錢幣撲滿</span>
+            <span class="text-lg font-black text-amber-900 number-font">
+              $<span id="global-coins-text">0</span>
+            </span>
+          </div>
         </div>
 
         <!-- Audio & Voice Toggles -->
@@ -107,436 +107,350 @@
       </div>
     </header>
 
-    <!-- Navigation Tabs (3 Main Modules) -->
-    <nav class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-      <!-- Tab 1: Slow Reading Forest -->
-      <button onclick="App.switchTab('tab-reading')" id="btn-tab-reading" class="py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-emerald-400 bg-emerald-500 text-white">
-        <span class="text-xl">🌲</span>
-        <span>第一部分：慢速朗讀森林</span>
+    <!-- Round Switcher Navigation Tabs (Only 2 Rounds now) -->
+    <nav class="grid grid-cols-2 gap-2 sm:gap-3">
+      <!-- Round 1 Button -->
+      <button onclick="Game.switchRound(1)" id="btn-round-1" class="py-3 px-3 sm:px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-emerald-400 bg-emerald-500 text-white">
+        <span class="text-xl">🍎</span>
+        <div class="flex flex-col items-start leading-tight">
+          <span>第一回合：數量數數店長</span>
+          <span class="text-[10px] font-normal opacity-90">看數量選數字・開局 1-30 朗讀動畫</span>
+        </div>
       </button>
 
-      <!-- Tab 2: Forward & Backward Counting -->
-      <button onclick="App.switchTab('tab-counting')" id="btn-tab-counting" class="py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-sky-300 bg-white hover:bg-sky-50 text-slate-700">
-        <span class="text-xl">🚀</span>
-        <span>第二部分：正數與倒數冒險</span>
-      </button>
-
-      <!-- Tab 3: Speech Voice Recognition -->
-      <button onclick="App.switchTab('tab-speech')" id="btn-tab-speech" class="py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-rose-300 bg-white hover:bg-rose-50 text-slate-700">
-        <span class="text-xl">🎤</span>
-        <span>第三部分：小小播音員辨識</span>
+      <!-- Round 2 Button -->
+      <button onclick="Game.switchRound(2)" id="btn-round-2" class="py-3 px-3 sm:px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-sky-300 bg-white hover:bg-sky-50 text-slate-700">
+        <span class="text-xl">📻</span>
+        <div class="flex flex-col items-start leading-tight">
+          <span>第二回合：神秘聽力填空</span>
+          <span class="text-[10px] font-normal opacity-90">聽聲音選數字・空格無字純聽力</span>
+        </div>
       </button>
     </nav>
 
     <!-- ========================================================================= -->
-    <!-- SECTION 1: 慢速朗讀森林 (Slow Reading & Follow-Along)                     -->
+    <!-- ROUND 1: 數量數數店長 (Quantity Counting & Intro Animation)               -->
     <!-- ========================================================================= -->
-    <main id="tab-reading" class="flex flex-col gap-3 sm:gap-4">
+    <section id="round-1-view" class="flex flex-col gap-3 sm:gap-4">
       
-      <!-- Control Bar Card -->
-      <div class="bg-white/95 rounded-3xl p-4 sm:p-5 shadow-md border-2 border-emerald-200 flex flex-col gap-3">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="text-2xl">🐢</span>
-            <div>
-              <h2 class="font-black text-emerald-900 text-base sm:text-lg">
-                慢速朗讀引導 (1 到 30)
-              </h2>
-              <p class="text-xs text-slate-500 font-bold">
-                專為初學者調製的慢速發音，配合生動卡片跳躍，跟著小動物一起唸！
-              </p>
-            </div>
-          </div>
-
-          <!-- Speed Controls -->
-          <div class="flex items-center gap-1.5 bg-emerald-50 p-1.5 rounded-2xl border border-emerald-200 text-xs font-black">
-            <span class="text-emerald-800 ml-1">朗讀速度：</span>
-            <button onclick="ReadingModule.setSpeed(0.5, this)" class="speed-btn px-2.5 py-1 rounded-xl transition bg-white text-emerald-700 border border-emerald-300 shadow-xs">
-              🦥 超慢 (0.5x)
-            </button>
-            <button onclick="ReadingModule.setSpeed(0.65, this)" class="speed-btn active-speed px-2.5 py-1 rounded-xl transition bg-emerald-600 text-white shadow-xs">
-              🐢 慢速推薦 (0.65x)
-            </button>
-            <button onclick="ReadingModule.setSpeed(0.9, this)" class="speed-btn px-2.5 py-1 rounded-xl transition bg-white text-emerald-700 border border-emerald-300 shadow-xs">
-              🐇 一般 (0.9x)
-            </button>
-          </div>
-        </div>
-
-        <!-- Playback Controls & Status Banner -->
-        <div class="flex flex-wrap items-center justify-between gap-3">
-          <!-- Main Action Buttons -->
-          <div class="flex items-center gap-2 flex-wrap">
-            <button id="reading-play-btn" onclick="ReadingModule.toggleAutoPlay()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 active:scale-95 text-white font-black text-sm rounded-2xl shadow-md transition flex items-center gap-2">
-              <span id="reading-play-icon">▶</span>
-              <span id="reading-play-text">連續慢速朗讀 1~30</span>
-            </button>
-            <button onclick="ReadingModule.stopAutoPlay()" class="px-3.5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xs rounded-2xl transition">
-              ⏹ 停止並重置
-            </button>
-            <button onclick="ReadingModule.prevNumber()" class="px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-black text-xs rounded-xl border border-emerald-200">
-              ⏮ 上一個
-            </button>
-            <button onclick="ReadingModule.nextNumber()" class="px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-black text-xs rounded-xl border border-emerald-200">
-              ⏭ 下一個
-            </button>
-          </div>
-
-          <!-- Active Focus Highlight Pill -->
-          <div class="flex items-center gap-2 bg-amber-50 px-4 py-2 rounded-2xl border-2 border-amber-300">
-            <span class="text-xs font-black text-amber-800">目前焦點：</span>
-            <span id="reading-focus-number" class="text-2xl font-black text-amber-600 number-font">1</span>
-            <span id="reading-focus-chinese" class="text-sm font-black text-amber-800 bg-white px-2 py-0.5 rounded-lg border border-amber-200">一</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grid of 30 Numbers (1 to 30) -->
-      <div class="bg-white/90 rounded-3xl p-3 sm:p-5 shadow-md border-2 border-emerald-100">
-        <div class="flex items-center justify-between mb-3 px-1">
-          <span class="text-xs font-black text-slate-500">
-            💡 點擊任何一張卡片，小動物會慢速唸給您聽，並展開數量點陣！
+      <!-- Top Status & Action Bar -->
+      <div class="bg-white/95 rounded-2xl p-3 sm:p-4 shadow-sm border border-emerald-200 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-xl text-xs font-black bg-emerald-600 text-white">
+            第一回合：看數量選數字
           </span>
-          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-xl">
-            共 30 個數字精靈
+          <span class="text-xs font-bold text-slate-600">
+            第 <span id="r1-q-curr" class="text-emerald-600 font-black text-sm">1</span> / 10 題
           </span>
         </div>
 
-        <!-- 30 Cards Grid (5 cols on mobile, 6 or 10 on desktop) -->
-        <div id="reading-grid-container" class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-10 gap-2 sm:gap-2.5">
-          <!-- Dynamically generated by JS -->
-        </div>
-      </div>
-
-      <!-- Quantity Demonstration Stage (Dynamic visual dot counter) -->
-      <div id="reading-quantity-stage" class="bg-amber-50/80 rounded-3xl p-4 border-2 border-amber-200 flex flex-col gap-2">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🍎</span>
-            <h3 class="text-xs sm:text-sm font-black text-amber-900">
-              數量視覺小聚寶盆：<span id="quantity-label" class="text-base text-amber-600 number-font">1</span> 個物品
-            </h3>
-          </div>
-          <span class="text-[11px] font-bold text-slate-400">一格代表一個，幫助建立數感量感</span>
-        </div>
-        <div id="quantity-dots-container" class="flex flex-wrap gap-1.5 p-2 bg-white rounded-2xl border border-amber-200 min-h-[50px] items-center">
-          <!-- Injected dots -->
-        </div>
-      </div>
-    </main>
-
-    <!-- ========================================================================= -->
-    <!-- SECTION 2: 正數與倒數冒險 (Forward & Backward Counting Practice)          -->
-    <!-- ========================================================================= -->
-    <main id="tab-counting" class="flex flex-col gap-3 sm:gap-4 hidden">
-      
-      <!-- Counting Mode Switcher -->
-      <div class="bg-white/95 rounded-3xl p-3 sm:p-4 shadow-md border-2 border-sky-200 flex flex-wrap items-center justify-between gap-3">
-        <!-- Direction Switcher (Forward vs Backward) -->
         <div class="flex items-center gap-2">
-          <span class="text-2xl">🧭</span>
-          <div>
-            <h2 class="font-black text-sky-950 text-base sm:text-lg">
-              數數冒險方向選擇
-            </h2>
-            <p class="text-xs text-slate-500 font-bold">
-              切換正向順數或反向倒數，全面鍛鍊數序推理能力！
-            </p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <button onclick="CountingModule.setDirection('forward')" id="btn-count-forward" class="px-4 py-2 rounded-2xl font-black text-xs sm:text-sm bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md border-2 border-emerald-400 flex items-center gap-1.5 active:scale-95 transition">
-            <span>🟢</span>
-            <span>正數前進 (1 ➔ 30)</span>
+          <button onclick="Round1.showIntroAnimation()" class="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-black border border-amber-200 transition flex items-center gap-1">
+            <span>🎬</span>
+            <span>重播 1-30 朗讀動畫</span>
           </button>
-          <button onclick="CountingModule.setDirection('backward')" id="btn-count-backward" class="px-4 py-2 rounded-2xl font-black text-xs sm:text-sm bg-white hover:bg-rose-50 text-rose-700 border-2 border-rose-300 flex items-center gap-1.5 active:scale-95 transition">
-            <span>🟣</span>
-            <span>倒數發射 (30 ➔ 1)</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Activity Tabs within Counting Module -->
-      <div class="flex items-center gap-2 bg-sky-100/60 p-1.5 rounded-2xl border border-sky-200">
-        <button onclick="CountingModule.switchActivity('stepping')" id="btn-act-stepping" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-black bg-white text-sky-800 shadow-xs transition">
-          👣 模式 A：踏石連續接龍 (點擊下一個數字)
-        </button>
-        <button onclick="CountingModule.switchActivity('puzzle')" id="btn-act-puzzle" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-black text-slate-600 hover:text-sky-800 transition">
-          🧩 模式 B：神秘缺空大解密 (選出缺少的數字)
-        </button>
-      </div>
-
-      <!-- ACTIVITY A: Stepping Stones (連續踩石) -->
-      <div id="count-activity-stepping" class="bg-white/95 rounded-3xl p-4 sm:p-6 shadow-md border-2 border-sky-200 flex flex-col gap-4">
-        
-        <!-- Header Info -->
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
-          <div class="flex items-center gap-2">
-            <span class="text-3xl" id="stepping-mascot-icon">🚀</span>
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="font-black text-slate-800 text-sm sm:text-base" id="stepping-title-text">
-                  正數踩石階梯 (1 到 30)
-                </h3>
-                <span id="stepping-direction-badge" class="px-2 py-0.5 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800">
-                  正向＋1
-                </span>
-              </div>
-              <p class="text-xs text-slate-500 font-bold" id="stepping-desc-text">
-                請依序找出下一個數字精靈踩下去，走完 30 步！
-              </p>
-            </div>
-          </div>
-
-          <!-- Current Target Banner -->
-          <div class="flex items-center gap-2 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-2 rounded-2xl border-2 border-amber-300">
-            <span class="text-xs font-black text-amber-800">請按這個數字：</span>
-            <span id="stepping-target-display" class="text-3xl font-black text-amber-600 number-font animate-bounce">1</span>
-            <span id="stepping-target-chinese" class="text-xs font-black text-amber-700 bg-white px-2 py-0.5 rounded-lg border border-amber-200">一</span>
-          </div>
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="flex flex-col gap-1">
-          <div class="flex justify-between text-xs font-black text-slate-500">
-            <span>進度：<strong id="stepping-progress-text" class="text-sky-600">0</strong> / 30 步</span>
-            <span id="stepping-percent-text">0%</span>
-          </div>
-          <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden p-0.5 border border-slate-200">
-            <div id="stepping-progress-fill" class="bg-gradient-to-r from-sky-400 to-emerald-400 h-full rounded-full transition-all duration-300" style="width: 0%;"></div>
-          </div>
-        </div>
-
-        <!-- Stepping Stones Grid: 30 Interactive Pads -->
-        <div id="stepping-grid-container" class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-10 gap-2 sm:gap-2.5">
-          <!-- Injected by JS -->
-        </div>
-
-        <!-- Feedback & Control footer -->
-        <div class="flex items-center justify-between pt-2">
-          <div id="stepping-feedback-msg" class="text-xs font-bold text-slate-500 flex items-center gap-1.5">
-            <span>💡</span>
-            <span>點選亮起的黃色數字踏石，踏對會朗讀並前進！</span>
-          </div>
-          <button onclick="CountingModule.resetStepping()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition">
-            ↺ 重新挑戰這局
-          </button>
-        </div>
-      </div>
-
-      <!-- ACTIVITY B: Puzzle Missing Numbers (缺空解密) -->
-      <div id="count-activity-puzzle" class="bg-white/95 rounded-3xl p-4 sm:p-6 shadow-md border-2 border-indigo-200 flex flex-col gap-4 hidden">
-        
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
-          <div class="flex items-center gap-2">
-            <span class="text-3xl">🧩</span>
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="font-black text-slate-800 text-sm sm:text-base">
-                  神秘缺空大解密
-                </h3>
-                <span id="puzzle-direction-badge" class="px-2 py-0.5 rounded-full text-[11px] font-black bg-indigo-100 text-indigo-800">
-                  正數題型
-                </span>
-              </div>
-              <p class="text-xs text-slate-500 font-bold">
-                仔細觀察數列規律，選出中間問號【❓】缺少的正確數字！
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-black text-slate-500">題數：</span>
-            <span class="px-3 py-1 rounded-xl bg-indigo-50 text-indigo-800 font-black text-sm border border-indigo-200">
-              第 <span id="puzzle-curr-q">1</span> / 10 題
-            </span>
-          </div>
-        </div>
-
-        <!-- Puzzle Sequence Display -->
-        <div class="bg-indigo-50/70 rounded-3xl p-6 sm:p-8 border-2 border-indigo-200 flex flex-col items-center justify-center gap-4">
-          <div class="text-xs font-black text-indigo-800 bg-white px-3 py-1 rounded-full border border-indigo-200 shadow-xs">
-            數列排列順序
-          </div>
-          
-          <div id="puzzle-cards-row" class="flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
-            <!-- Dynamically populated sequence cards -->
-          </div>
-
-          <div id="puzzle-hint-text" class="text-xs font-bold text-slate-500 mt-1">
-            從下方 3 個彩色氣球選項中，挑出正確的數字填入！
-          </div>
-        </div>
-
-        <!-- 3 Multiple-Choice Floating Balloons -->
-        <div class="flex flex-col gap-2">
-          <div class="text-xs font-black text-slate-500 text-center">
-            請選擇正確的氣球數字：
-          </div>
-          <div id="puzzle-options-container" class="grid grid-cols-3 gap-3 max-w-lg mx-auto w-full">
-            <!-- 3 Option Buttons -->
-          </div>
-        </div>
-
-        <!-- Footer Control -->
-        <div class="flex justify-end pt-2">
-          <button onclick="CountingModule.nextPuzzleQuestion()" class="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-black transition border border-indigo-200">
+          <button onclick="Round1.nextQuestion(true)" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition">
             換一題 ➔
           </button>
         </div>
+      </div>
+
+      <!-- Main Counting Question Card -->
+      <div class="bg-white/95 rounded-3xl p-4 sm:p-6 shadow-md border-2 border-emerald-200 flex flex-col gap-4">
+        
+        <!-- Question Prompt Header -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl" id="r1-theme-icon">🍎</span>
+            <div>
+              <h2 class="font-black text-slate-800 text-sm sm:text-base">
+                請數數看，盤子裡一共有多少個【<span id="r1-theme-name" class="text-emerald-700">紅蘋果</span>】？
+              </h2>
+              <p class="text-xs text-slate-400 font-bold">
+                💡 點擊盤子裡的物品，會蓋上數字印章幫你記住數到哪裡喔！
+              </p>
+            </div>
+          </div>
+
+          <button onclick="Round1.speakPrompt()" class="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-xl border border-emerald-200 flex items-center gap-1 shadow-xs transition">
+            <span>🔊</span>
+            <span>唸題目</span>
+          </button>
+        </div>
+
+        <!-- Counting Display Stage (Plate with Items) -->
+        <div class="bg-gradient-to-b from-emerald-50/60 to-amber-50/50 rounded-3xl p-4 sm:p-6 border-2 border-emerald-200 flex flex-col items-center justify-center gap-3 relative min-h-[220px]">
+          
+          <!-- Helper Tally Banner -->
+          <div class="flex items-center justify-between w-full max-w-md px-2 text-xs font-bold text-slate-500">
+            <span>點擊已標記：<strong id="r1-marked-count" class="text-emerald-600 text-sm number-font">0</strong> 個</span>
+            <button onclick="Round1.clearItemMarks()" class="text-[11px] text-slate-400 hover:text-rose-500 underline">
+              清除標記印章
+            </button>
+          </div>
+
+          <!-- Items Grid (Max 30 items) -->
+          <div id="r1-items-tray" class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-xl p-3 bg-white/90 rounded-2xl border-2 border-emerald-100 shadow-inner">
+            <!-- Dynamically injected item buttons -->
+          </div>
+
+        </div>
+
+        <!-- 4 Multiple Choice Option Buttons -->
+        <div class="flex flex-col gap-2 pt-1">
+          <div class="text-xs font-black text-slate-500 text-center">
+            請點選正確的數量選項：
+          </div>
+          <div id="r1-options-container" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-2xl mx-auto w-full">
+            <!-- Dynamically injected options -->
+          </div>
+        </div>
 
       </div>
 
-    </main>
+    </section>
 
     <!-- ========================================================================= -->
-    <!-- SECTION 3: 小小播音員辨識 (Voice Speaking & AI Evaluation)                -->
+    <!-- ROUND 2: 神秘聽力填空題 (Listening Blank - Pure Auditory, No Number)     -->
     <!-- ========================================================================= -->
-    <main id="tab-speech" class="flex flex-col gap-3 sm:gap-4 hidden">
+    <section id="round-2-view" class="flex flex-col gap-3 sm:gap-4 hidden">
       
-      <!-- Speech Stage Card -->
-      <div class="bg-white/95 rounded-3xl p-5 sm:p-7 shadow-md border-2 border-rose-200 flex flex-col gap-5 relative overflow-hidden">
+      <!-- Top Status & Action Bar -->
+      <div class="bg-white/95 rounded-2xl p-3 sm:p-4 shadow-sm border border-sky-200 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-xl text-xs font-black bg-sky-600 text-white">
+            第二回合：純聽力填空
+          </span>
+          <span class="text-xs font-bold text-slate-600">
+            第 <span id="r2-q-curr" class="text-sky-600 font-black text-sm">1</span> / 10 題
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="Round2.nextQuestion(true)" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition">
+            換一題 ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Listening Question Card -->
+      <div class="bg-white/95 rounded-3xl p-5 sm:p-7 shadow-md border-2 border-sky-200 flex flex-col gap-5">
         
         <!-- Header -->
         <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center text-3xl text-white shadow-md">
-              🎙️
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-2xl text-white shadow-md">
+              📻
             </div>
             <div>
-              <div class="flex items-center gap-2">
-                <h2 class="font-black text-slate-800 text-base sm:text-lg">
-                  小小播音員・換你大聲唸！
-                </h2>
-                <span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-100 text-rose-800 border border-rose-200">
-                  語音判定
-                </span>
-              </div>
+              <h2 class="font-black text-slate-800 text-sm sm:text-base">
+                請聽聲音，選出神秘空格中唸出的正確數字！
+              </h2>
               <p class="text-xs text-slate-500 font-bold">
-                對著麥克風大聲說出指定數字，系統會自動辨識並判斷你是否唸對喔！
+                仔細聽耳機裡廣播的聲音，空格裡沒有提示，選出聽到的數字！
               </p>
             </div>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button onclick="SpeechModule.newRandomTarget()" class="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition border border-rose-200">
-              🎲 隨機換題目
+          <!-- Speed Controls for Listening -->
+          <div class="flex items-center gap-1 bg-sky-50 p-1 rounded-xl border border-sky-200 text-xs font-black">
+            <span class="text-sky-800 ml-1 text-[11px]">語速：</span>
+            <button onclick="Round2.setSpeed(0.5, this)" class="r2-speed-btn px-2 py-0.5 rounded-lg bg-white text-sky-700 border border-sky-200 text-[11px]">
+              🦥 超慢
+            </button>
+            <button onclick="Round2.setSpeed(0.65, this)" class="r2-speed-btn px-2 py-0.5 rounded-lg bg-sky-600 text-white text-[11px]">
+              🐢 慢速推薦
             </button>
           </div>
         </div>
 
-        <!-- Target Number Spotlight Stage -->
-        <div class="bg-gradient-to-b from-rose-50/60 to-amber-50/60 rounded-3xl p-6 sm:p-8 border-2 border-rose-200 flex flex-col items-center justify-center gap-4 relative">
+        <!-- Listening Stage: Empty Blank Mystery Slot + Big Speaker -->
+        <div class="bg-gradient-to-b from-sky-50/70 to-indigo-50/60 rounded-3xl p-6 sm:p-8 border-2 border-sky-200 flex flex-col items-center justify-center gap-4 relative">
           
-          <div class="text-xs sm:text-sm font-black text-rose-900 bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-xs flex items-center gap-1.5">
-            <span>📢</span>
-            <span>現在請大聲說出這個數字：</span>
-          </div>
-
-          <!-- Huge Target Number Card -->
-          <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-white shadow-xl border-4 border-rose-300 flex flex-col items-center justify-center gap-1 relative group transform hover:scale-105 transition">
-            <span id="speech-target-num" class="text-6xl sm:text-7xl font-black text-rose-600 number-font tracking-tight">
-              18
+          <!-- Mystery Blank Slot: STRICTLY EMPTY (No number inside!) -->
+          <div id="r2-blank-slot" class="w-48 h-32 sm:w-56 sm:h-36 rounded-3xl bg-white border-4 border-dashed border-sky-400 shadow-lg flex flex-col items-center justify-center gap-1 relative transition-all duration-300">
+            <span id="r2-slot-icon" class="text-3xl animate-bounce">❓</span>
+            <span id="r2-slot-text" class="text-base sm:text-lg font-black text-sky-800">
+              [ 聽聲音填空 ]
             </span>
-            <div class="flex items-center gap-1">
-              <span id="speech-target-chinese" class="text-base sm:text-lg font-black text-slate-700">
-                十八
-              </span>
-              <span id="speech-target-phonetic" class="text-xs text-slate-400 font-mono">
-                (ㄕˊ ㄅㄚ)
-              </span>
-            </div>
-
-            <!-- Small Play Hint Button -->
-            <button onclick="SpeechModule.playTargetHint()" class="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-amber-400 hover:bg-amber-500 text-white font-black text-base shadow-md flex items-center justify-center transition active:scale-90" title="慢速示範發音">
-              🔊
-            </button>
+            <span class="text-[11px] font-bold text-slate-400">
+              空格內無字・請聽語音
+            </span>
           </div>
 
-          <!-- Slow Standard Demonstration Prompt -->
-          <div class="flex items-center gap-2 text-xs font-bold text-slate-500">
-            <span>不會唸嗎？點右上角</span>
-            <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-black">🔊 喇叭</span>
-            <span>可以聽慢速示範發音喔！</span>
-          </div>
-        </div>
-
-        <!-- Microphone Interactive Section -->
-        <div class="flex flex-col items-center justify-center gap-4 py-2">
-          
-          <!-- Animated Mic Wave Container -->
-          <div class="relative flex items-center justify-center">
-            <div id="mic-pulse-ring" class="absolute w-28 h-28 rounded-full bg-rose-400/30 hidden animate-mic-wave"></div>
+          <!-- Interactive Replay Choice Panel (朗讀只要一次，生成按鍵讓玩家選擇要不要再朗讀一次) -->
+          <div class="flex flex-col items-center gap-2.5 w-full max-w-md bg-white/95 p-4 rounded-2xl border-2 border-sky-300 shadow-sm">
             
-            <button id="mic-action-btn" onclick="SpeechModule.toggleListening()" class="relative z-10 w-24 h-24 rounded-full bg-gradient-to-tr from-rose-500 to-amber-500 hover:from-rose-600 hover:to-amber-600 active:scale-95 text-white shadow-xl border-4 border-white flex flex-col items-center justify-center gap-1 transition-all">
-              <span id="mic-icon" class="text-3xl">🎤</span>
-              <span id="mic-btn-label" class="text-xs font-black tracking-wide">按我說話</span>
-            </button>
-          </div>
-
-          <!-- Status Text -->
-          <div class="flex flex-col items-center text-center gap-1">
-            <div id="speech-status-pill" class="px-4 py-1.5 rounded-full text-xs font-black bg-slate-100 text-slate-600 border border-slate-200">
-              🎙️ 點擊麥克風後，大聲說出數字
+            <!-- Voice Status Badge -->
+            <div id="r2-speech-status-pill" class="px-3.5 py-1 rounded-full text-xs font-black bg-sky-100 text-sky-800 border border-sky-200 flex items-center gap-1.5 animate-pulse">
+              <span>🎧</span>
+              <span id="r2-speech-status-text">正在為你朗讀題目（只朗讀一次）...</span>
             </div>
-            <p id="speech-listening-hint" class="text-xs text-slate-400 font-bold min-h-[18px]">
-              支援國語/普通話語音辨識（例：「十八」或「18」）
+
+            <div class="text-xs font-bold text-slate-700 flex items-center gap-1">
+              <span>🤔</span>
+              <span id="r2-replay-question-prompt">聽清楚了嗎？要不要再朗讀一次？</span>
+            </div>
+
+            <!-- Choice Action Button: Replay Audio -->
+            <button id="r2-replay-choice-btn" onclick="Round2.chooseReplay()" class="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 active:scale-95 text-white font-black text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+              <span class="text-lg">🔁</span>
+              <span id="r2-replay-btn-label">我要再朗讀一次</span>
+              <!-- Mini Sound Waves (Visible during speech) -->
+              <div id="r2-sound-waves" class="flex items-center gap-0.5 h-4">
+                <span class="w-1 bg-white rounded-full wave-bar-1"></span>
+                <span class="w-1 bg-white rounded-full wave-bar-2"></span>
+                <span class="w-1 bg-white rounded-full wave-bar-3"></span>
+                <span class="w-1 bg-white rounded-full wave-bar-4"></span>
+              </div>
+            </button>
+
+            <!-- Status Subtext -->
+            <p id="r2-replay-counter-text" class="text-[11px] font-bold text-slate-400 text-center">
+              題目只會主動朗讀 1 次・聽清楚了可以直接在下方點選答案喔！
             </p>
           </div>
+        </div>
 
-          <!-- Recognition Result Card -->
-          <div id="speech-result-card" class="w-full max-w-md bg-slate-50 rounded-2xl p-4 border-2 border-slate-200 flex flex-col gap-2 transition-all">
-            <div class="flex items-center justify-between text-xs font-black text-slate-500">
-              <span>系統辨識結果：</span>
-              <span id="speech-verdict-badge" class="px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 text-[11px]">
-                等待朗讀
-              </span>
-            </div>
-
-            <!-- Heard words -->
-            <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-base">👂</span>
-                <span class="text-xs font-bold text-slate-500">聽到的聲音：</span>
-                <strong id="speech-transcript-text" class="text-slate-800 text-sm font-black">尚未說話</strong>
-              </div>
-              <span id="speech-parsed-val" class="text-xs font-black text-slate-400"></span>
-            </div>
-
-            <!-- Mascot Feedback Explanation -->
-            <div id="speech-feedback-box" class="hidden p-3 rounded-xl flex items-start gap-2.5 text-xs font-bold">
-              <span id="speech-feedback-icon" class="text-2xl">🌟</span>
-              <div id="speech-feedback-msg" class="leading-relaxed">
-                太棒了！你唸得非常準確！
-              </div>
-            </div>
+        <!-- 4 Multiple Choice Option Buttons -->
+        <div class="flex flex-col gap-2 pt-1">
+          <div class="text-xs font-black text-slate-500 text-center">
+            請選出你剛才聽到的正確數字：
           </div>
-
-          <!-- Quick Test / Fallback Bar (Ensures 100% testability even without mic permission) -->
-          <div class="w-full max-w-md bg-amber-50/70 p-3 rounded-2xl border border-amber-200 flex flex-col gap-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-black text-amber-900 flex items-center gap-1">
-                <span>🧪</span>
-                <span>無麥克風或瀏覽器權限受限時？</span>
-              </span>
-              <span class="text-[10px] text-amber-700 font-bold">快速模擬測試</span>
-            </div>
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <button onclick="SpeechModule.simulateSpeech(true)" class="flex-1 py-1.5 px-2 bg-white hover:bg-emerald-50 text-emerald-700 border border-emerald-300 rounded-xl text-xs font-black shadow-xs transition">
-                ✅ 模擬唸出正確答案
-              </button>
-              <button onclick="SpeechModule.simulateSpeech(false)" class="flex-1 py-1.5 px-2 bg-white hover:bg-rose-50 text-rose-700 border border-rose-300 rounded-xl text-xs font-black shadow-xs transition">
-                ❌ 模擬唸錯別的數字
-              </button>
-            </div>
+          <div id="r2-options-container" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-2xl mx-auto w-full">
+            <!-- Dynamically injected options -->
           </div>
-
         </div>
 
       </div>
 
-    </main>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- INTRO ANIMATION MODAL: 1 to 30 READ-ALOUD SHOWCASE                        -->
+    <!-- ========================================================================= -->
+    <div id="intro-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+      <div class="bg-white rounded-3xl p-5 sm:p-6 max-w-lg w-full shadow-2xl border-4 border-emerald-300 flex flex-col gap-4 relative">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl animate-bounce">🎬</span>
+            <h3 class="text-base sm:text-lg font-black text-slate-800">
+              第一回合導讀：數數 1 到 30 動畫演示
+            </h3>
+          </div>
+          <button onclick="Round1.skipIntroAnimation()" class="text-xs font-black px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 transition">
+            ⏩ 略過動畫直接挑戰
+          </button>
+        </div>
+
+        <!-- Animated Stage Box -->
+        <div class="bg-gradient-to-b from-amber-50 to-emerald-50 rounded-2xl p-6 border-2 border-emerald-200 flex flex-col items-center justify-center gap-3 relative min-h-[220px]">
+          
+          <div class="text-xs font-black text-emerald-800 bg-white px-3 py-1 rounded-full border border-emerald-300 shadow-xs">
+            跟著小動物一起大聲唸：
+          </div>
+
+          <!-- Big Bouncing Card -->
+          <div id="intro-bouncing-card" class="w-32 h-32 sm:w-36 sm:h-36 rounded-3xl bg-white shadow-xl border-4 border-emerald-400 flex flex-col items-center justify-center gap-1 transform transition duration-300">
+            <span id="intro-item-icon" class="text-3xl">🍎</span>
+            <span id="intro-number-text" class="text-5xl font-black text-emerald-600 number-font">1</span>
+            <span id="intro-chinese-text" class="text-sm font-black text-slate-600">一</span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full max-w-xs flex flex-col gap-1 items-center">
+            <div class="flex justify-between w-full text-[11px] font-bold text-slate-500">
+              <span>進度：<strong id="intro-curr-step" class="text-emerald-600">1</strong> / 30</span>
+              <span id="intro-percent-text">3%</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+              <div id="intro-progress-bar" class="bg-gradient-to-r from-emerald-400 to-teal-500 h-full transition-all duration-300" style="width: 3.33%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="Round1.replayIntroAnimation()" class="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+            🔄 重新播放
+          </button>
+          <button onclick="Round1.skipIntroAnimation()" class="flex-1 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-black text-xs sm:text-sm rounded-xl shadow-md transition active:scale-95">
+            ✨ 我準備好了，開始答題！
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- FEEDBACK MODAL: SUCCESS (Cash Register Cha-Ching) OR WRONG (Cry Face)      -->
+    <!-- ========================================================================= -->
+    <div id="feedback-modal" class="fixed inset-0 bg-slate-900/65 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+      <div id="feedback-card" class="bg-white rounded-3xl p-5 sm:p-6 max-w-md w-full shadow-2xl border-4 text-center flex flex-col gap-4 relative">
+        
+        <!-- Big Animated Icon (Cash Coin or Crying Face) -->
+        <div id="feedback-icon" class="text-6xl mx-auto">
+          🪙
+        </div>
+
+        <!-- Title -->
+        <h3 id="feedback-title" class="text-xl sm:text-2xl font-black">
+          出貨成功！
+        </h3>
+
+        <!-- Body Content (Educational correction or Coin Award) -->
+        <div id="feedback-body" class="text-sm font-bold leading-relaxed">
+          <!-- Injected by JS -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2 pt-2">
+          <button id="feedback-replay-btn" class="hidden flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-black transition">
+            🔊 再聽一次發音
+          </button>
+          <button id="feedback-action-btn" onclick="Game.closeFeedbackAndNext()" class="flex-1 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-sm shadow-md transition active:scale-95">
+            下一題 ➔
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ROUND COMPLETE CELEBRATION MODAL                                          -->
+    <!-- ========================================================================= -->
+    <div id="round-complete-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 hidden">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border-4 border-amber-400 text-center flex flex-col gap-4 relative animate-coin">
+        <div class="text-6xl animate-bounce">
+          🎉
+        </div>
+        <h3 class="text-2xl font-black text-amber-900">
+          恭喜完成 10 題出貨挑戰！
+        </h3>
+        
+        <div class="bg-amber-50 rounded-2xl p-4 border border-amber-200 flex flex-col gap-2 text-xs font-bold text-slate-600">
+          <div class="flex justify-between items-center text-sm">
+            <span>本輪答對題數：</span>
+            <strong id="stat-correct-count" class="text-emerald-600 text-base font-black">10 / 10</strong>
+          </div>
+          <div class="flex justify-between items-center text-sm">
+            <span>累計存入錢幣：</span>
+            <strong id="stat-coins-earned" class="text-amber-600 text-base font-black">+100 🪙</strong>
+          </div>
+        </div>
+
+        <div class="flex gap-2 pt-2">
+          <button onclick="Game.restartCurrentRound()" class="flex-1 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition">
+            ↺ 重新挑戰本回合
+          </button>
+          <button onclick="Game.switchRound(Game.currentRound === 1 ? 2 : 1)" class="flex-1 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-xs sm:text-sm shadow-md transition active:scale-95">
+            前往另一個回合 ▶
+          </button>
+        </div>
+      </div>
+    </div>
 
   </div>
 
@@ -545,7 +459,7 @@
   <!-- ========================================================================= -->
   <script>
     /* -------------------------------------------------------------
-       1. CHINESE NUMBER UTILITIES & DATA (1 to 30)
+       1. DATA STRUCTURES & VOCABULARY (1 to 30)
        ------------------------------------------------------------- */
     const CHINESE_NUMS = [
       '', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十',
@@ -553,67 +467,142 @@
       '二十一', '二十二', '二十三', '二十四', '二十五', '二十六', '二十七', '二十八', '二十九', '三十'
     ];
 
-    const CHINESE_PINYIN = [
-      '', 'ㄧ', 'ㄦˋ', 'ㄙㄢ', 'ㄙˋ', 'ㄨˇ', 'ㄌㄧㄡˋ', 'ㄑㄧ', 'ㄅㄚ', 'ㄐㄧㄡˇ', 'ㄕˊ',
-      'ㄕˊ ㄧ', 'ㄕˊ ㄦˋ', 'ㄕˊ ㄙㄢ', 'ㄕˊ ㄙˋ', 'ㄕˊ ㄨˇ', 'ㄕˊ ㄌㄧㄡˋ', 'ㄕˊ ㄑㄧ', 'ㄕˊ ㄅㄚ', 'ㄕˊ ㄐㄧㄡˇ', 'ㄦˋ ㄕˊ',
-      'ㄦˋ ㄕˊ ㄧ', 'ㄦˋ ㄕˊ ㄦˋ', 'ㄦˋ ㄕˊ ㄙㄢ', 'ㄦˋ ㄕˊ ㄙˋ', 'ㄦˋ ㄕˊ ㄨˇ', 'ㄦˋ ㄕˊ ㄌㄧㄡˋ', 'ㄦˋ ㄕˊ ㄑㄧ', 'ㄦˋ ㄕˊ ㄅㄚ', 'ㄦˋ ㄕˊ ㄐㄧㄡˇ', 'ㄙㄢ ㄕˊ'
-    ];
-
-    const CUTE_ICONS = [
-      '🍎', '🍌', '🍓', '🍇', '🍒', '🍉', '🥕', '🌽', '🍄', '🐶',
-      '🐱', '🐰', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵',
-      '🐥', '🐧', '🦉', '🦋', '🐝', '🐢', '🐬', '🐳', '🌟', '🌈'
+    const THEMES = [
+      { name: '紅蘋果', icon: '🍎' },
+      { name: '甜香蕉', icon: '🍌' },
+      { name: '紅草莓', icon: '🍓' },
+      { name: '紫葡萄', icon: '🍇' },
+      { name: '小西瓜', icon: '🍉' },
+      { name: '亮星星', icon: '⭐' },
+      { name: '小金魚', icon: '🐟' },
+      { name: '小萌狗', icon: '🐶' },
+      { name: '小熊貓', icon: '🐼' },
+      { name: '小杯糕', icon: '🧁' },
+      { name: '小甜甜圈', icon: '🍩' },
+      { name: '彩虹球', icon: '⚽' }
     ];
 
     /* -------------------------------------------------------------
-       2. WEB AUDIO API SYNTHESIZER (No external assets required)
+       2. WEB AUDIO API SYNTHESIZER
+          - Cash Register (叮噹～喀擦！Cha-Ching!)
+          - Cartoon Crying (嗚嗚～哭臉哭聲音效)
        ------------------------------------------------------------- */
     const Sound = {
       ctx: null,
       enabled: true,
+
       init() {
         if (!this.ctx) {
           const AudioContext = window.AudioContext || window.webkitAudioContext;
           if (AudioContext) this.ctx = new AudioContext();
         }
       },
-      beep(freq, duration, type = 'sine', gainVal = 0.15) {
+
+      // Cash Register Sound (Cha-Ching! 收銀機開關與錢幣掉落聲)
+      cashRegister() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+
+        try {
+          const now = this.ctx.currentTime;
+
+          // 1. High bell ding (叮～)
+          const oscBell = this.ctx.createOscillator();
+          const gainBell = this.ctx.createGain();
+          oscBell.type = 'sine';
+          oscBell.frequency.setValueAtTime(1760, now); // A6
+          gainBell.gain.setValueAtTime(0.35, now);
+          gainBell.gain.exponentialRampToValueAtTime(0.0001, now + 0.65);
+          oscBell.connect(gainBell);
+          gainBell.connect(this.ctx.destination);
+          oscBell.start(now);
+          oscBell.stop(now + 0.65);
+
+          // 2. Mechanical register slide & coins rattle (喀擦～錢幣連響)
+          const coinPitches = [987.77, 1318.5, 1567.98, 2093.0];
+          [0.08, 0.15, 0.22, 0.30].forEach((delay, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(coinPitches[idx], now + delay);
+            gain.gain.setValueAtTime(0.2, now + delay);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + delay + 0.14);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + delay);
+            osc.stop(now + delay + 0.14);
+          });
+        } catch (e) {
+          console.warn('Audio error', e);
+        }
+      },
+
+      // Cartoon Crying Sound (哭臉泣聲音效)
+      crySound() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+
+        try {
+          const now = this.ctx.currentTime;
+          // Two descending tremolo whimpers (嗚～嗚～)
+          [0, 0.32].forEach((offset) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(560, now + offset);
+            osc.frequency.exponentialRampToValueAtTime(310, now + offset + 0.28);
+
+            gain.gain.setValueAtTime(0.16, now + offset);
+            gain.gain.linearRampToValueAtTime(0.22, now + offset + 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + offset + 0.3);
+
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + offset);
+            osc.stop(now + offset + 0.3);
+          });
+        } catch (e) {
+          console.warn('Audio error', e);
+        }
+      },
+
+      click() {
         if (!this.enabled) return;
         this.init();
         if (!this.ctx) return;
         try {
           const osc = this.ctx.createOscillator();
           const gain = this.ctx.createGain();
-          osc.type = type;
-          osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-          gain.gain.setValueAtTime(gainVal, this.ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(700, this.ctx.currentTime);
+          gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.06);
           osc.connect(gain);
           gain.connect(this.ctx.destination);
           osc.start();
-          osc.stop(this.ctx.currentTime + duration);
-        } catch (e) {
-          console.warn('Audio error', e);
-        }
+          osc.stop(this.ctx.currentTime + 0.06);
+        } catch (e) {}
       },
-      click() { this.beep(600, 0.05, 'triangle', 0.1); },
-      step() { this.beep(480, 0.08, 'sine', 0.12); },
-      correct() {
-        this.beep(523.25, 0.1, 'sine', 0.15);
-        setTimeout(() => this.beep(659.25, 0.12, 'sine', 0.15), 100);
-        setTimeout(() => this.beep(783.99, 0.22, 'sine', 0.15), 200);
-      },
-      wrong() {
-        this.beep(300, 0.15, 'sawtooth', 0.15);
-        setTimeout(() => this.beep(240, 0.25, 'sawtooth', 0.15), 120);
-      },
-      fanfare() {
-        [523.25, 659.25, 783.99, 1046.5].forEach((f, idx) => {
-          setTimeout(() => this.beep(f, 0.25, 'triangle', 0.2), idx * 120);
-        });
-      },
-      micPing() {
-        this.beep(880, 0.12, 'sine', 0.15);
+
+      popStamp() {
+        if (!this.enabled) return;
+        this.init();
+        if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.08);
+          gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.08);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.08);
+        } catch (e) {}
       }
     };
 
@@ -622,7 +611,7 @@
        ------------------------------------------------------------- */
     const Voice = {
       enabled: true,
-      currentSpeed: 0.65, // Default slower speed as requested
+      currentSpeed: 0.65, // Slow, friendly pace
       correctPronunciation(text) {
         if (!text) return '';
         return String(text)
@@ -631,18 +620,14 @@
           .replace(/乘法/g, '成法');
       },
       speak(text, onEndCallback, customRate) {
-        if (!this.enabled) {
-          if (onEndCallback) setTimeout(onEndCallback, 300);
-          return;
-        }
-        if (!('speechSynthesis' in window)) {
+        if (!this.enabled || !('speechSynthesis' in window)) {
           if (onEndCallback) setTimeout(onEndCallback, 300);
           return;
         }
         try {
           window.speechSynthesis.cancel();
-          const cleanText = this.correctPronunciation(text);
-          const utt = new SpeechSynthesisUtterance(cleanText);
+          const clean = this.correctPronunciation(text);
+          const utt = new SpeechSynthesisUtterance(clean);
           utt.lang = 'zh-TW';
           utt.rate = customRate || this.currentSpeed;
           utt.pitch = 1.05;
@@ -665,748 +650,145 @@
     };
 
     /* -------------------------------------------------------------
-       4. SPEECH RECOGNITION (STT) TEXT PARSER
+       4. GLOBAL GAME MANAGER (Coins, Navigation, Modals)
        ------------------------------------------------------------- */
-    const SpeechParser = {
-      // Robust conversion of Mandarin speech transcripts to 1~30 integer
-      parse(raw) {
-        if (!raw) return null;
-        let str = String(raw).trim()
-          .replace(/\s+/g, '')
-          .replace(/[。，！？,.!?]/g, '');
-
-        // Direct Arabic numbers check
-        const digitMatch = str.match(/\b([1-9]|[12][0-9]|30)\b/);
-        if (digitMatch) return parseInt(digitMatch[1], 10);
-
-        // Normalize some common homophones / colloquial variations
-        str = str
-          .replace(/兩/g, '二')
-          .replace(/壹/g, '一')
-          .replace(/貳/g, '二')
-          .replace(/參/g, '三')
-          .replace(/肆/g, '四')
-          .replace(/伍/g, '五')
-          .replace(/陸/g, '六')
-          .replace(/柒/g, '七')
-          .replace(/捌/g, '八')
-          .replace(/玖/g, '九')
-          .replace(/拾/g, '十')
-          .replace(/廿/g, '二十')
-          .replace(/卅/g, '三十');
-
-        // Look for exact matches 1 to 30 in Chinese
-        for (let num = 30; num >= 1; num--) {
-          const cn = CHINESE_NUMS[num];
-          if (str.includes(cn) || str.includes(String(num))) {
-            return num;
-          }
-        }
-
-        // Additional phonetic homophones matching
-        const homophones = {
-          1: ['一', '依', '伊', '衣'],
-          2: ['二', '兒', '耳'],
-          3: ['三', '山', '珊'],
-          4: ['四', '寺', '事', '侍'],
-          5: ['五', '武', '舞', '午'],
-          6: ['六', '溜'],
-          7: ['七', '期', '妻', '漆'],
-          8: ['八', '巴', '吧'],
-          9: ['九', '久', '酒'],
-          10: ['十', '時', '石', '實']
-        };
-
-        for (let n = 1; n <= 10; n++) {
-          if (homophones[n].some(w => str.includes(w))) {
-            return n;
-          }
-        }
-
-        return null;
-      }
-    };
-
-    /* -------------------------------------------------------------
-       5. MODULE 1: 慢速朗讀森林 (Slow Reading Forest)
-       ------------------------------------------------------------- */
-    const ReadingModule = {
-      currentNum: 1,
-      isPlaying: false,
-      timer: null,
+    const Game = {
+      coins: 0,
+      currentRound: 1,
 
       init() {
-        this.renderGrid();
-        this.selectNumber(1, false);
-      },
-
-      setSpeed(rate, btn) {
-        Voice.currentSpeed = rate;
-        document.querySelectorAll('.speed-btn').forEach(b => {
-          b.className = 'speed-btn px-2.5 py-1 rounded-xl transition bg-white text-emerald-700 border border-emerald-300 shadow-xs';
-        });
-        btn.className = 'speed-btn active-speed px-2.5 py-1 rounded-xl transition bg-emerald-600 text-white shadow-xs';
-        Sound.click();
-        Voice.speak(`調整為${rate === 0.5 ? '超慢' : rate === 0.65 ? '慢速' : '一般'}朗讀`);
-      },
-
-      renderGrid() {
-        const container = document.getElementById('reading-grid-container');
-        container.innerHTML = '';
-        for (let i = 1; i <= 30; i++) {
-          const card = document.createElement('div');
-          card.id = `read-card-${i}`;
-          card.onclick = () => {
-            this.stopAutoPlay();
-            this.selectNumber(i, true);
-          };
-          card.className = 'flex flex-col items-center justify-center p-2 rounded-2xl bg-slate-50 hover:bg-emerald-50 border-2 border-slate-200 hover:border-emerald-400 cursor-pointer transition transform active:scale-95';
-          card.innerHTML = `
-            <span class="text-xs">${CUTE_ICONS[i - 1]}</span>
-            <span class="text-lg sm:text-xl font-black text-slate-800 number-font">${i}</span>
-            <span class="text-[11px] font-black text-slate-500">${CHINESE_NUMS[i]}</span>
-          `;
-          container.appendChild(card);
-        }
-      },
-
-      selectNumber(num, shouldSpeak = true) {
-        this.currentNum = num;
-        document.getElementById('reading-focus-number').textContent = num;
-        document.getElementById('reading-focus-chinese').textContent = CHINESE_NUMS[num];
-
-        // Update grid card highlights
-        for (let i = 1; i <= 30; i++) {
-          const c = document.getElementById(`read-card-${i}`);
-          if (!c) continue;
-          if (i === num) {
-            c.className = 'flex flex-col items-center justify-center p-2 rounded-2xl bg-amber-200 border-2 border-amber-500 shadow-md transform scale-110 animate-pulse-glow z-10';
-            c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-          } else {
-            c.className = 'flex flex-col items-center justify-center p-2 rounded-2xl bg-slate-50 hover:bg-emerald-50 border-2 border-slate-200 hover:border-emerald-400 cursor-pointer transition';
-          }
-        }
-
-        // Render quantity dots
-        this.renderQuantityDots(num);
-
-        if (shouldSpeak) {
-          Sound.click();
-          Voice.speak(`${num}，${CHINESE_NUMS[num]}`);
-        }
-      },
-
-      renderQuantityDots(count) {
-        document.getElementById('quantity-label').textContent = count;
-        const container = document.getElementById('quantity-dots-container');
-        container.innerHTML = '';
-        const icon = CUTE_ICONS[count - 1] || '🍎';
-        for (let i = 1; i <= count; i++) {
-          const dot = document.createElement('span');
-          dot.className = 'inline-flex items-center justify-center w-7 h-7 bg-amber-100 rounded-xl border border-amber-300 text-sm shadow-xs';
-          dot.textContent = icon;
-          dot.title = `第 ${i} 個`;
-          container.appendChild(dot);
-        }
-      },
-
-      prevNumber() {
-        this.stopAutoPlay();
-        let target = this.currentNum - 1;
-        if (target < 1) target = 30;
-        this.selectNumber(target, true);
-      },
-
-      nextNumber() {
-        this.stopAutoPlay();
-        let target = this.currentNum + 1;
-        if (target > 30) target = 1;
-        this.selectNumber(target, true);
-      },
-
-      toggleAutoPlay() {
-        if (this.isPlaying) {
-          this.stopAutoPlay();
-        } else {
-          this.startAutoPlay();
-        }
-      },
-
-      startAutoPlay() {
-        this.isPlaying = true;
-        document.getElementById('reading-play-icon').textContent = '⏸';
-        document.getElementById('reading-play-text').textContent = '暫停慢速朗讀';
-        document.getElementById('reading-play-btn').className = 'px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-sm rounded-2xl shadow-md transition flex items-center gap-2';
-
-        if (this.currentNum >= 30) this.currentNum = 1;
-        this.playSequenceStep(this.currentNum);
-      },
-
-      playSequenceStep(num) {
-        if (!this.isPlaying) return;
-        this.selectNumber(num, false);
-
-        Voice.speak(`${num}`, () => {
-          if (!this.isPlaying) return;
-          if (num < 30) {
-            this.timer = setTimeout(() => {
-              this.playSequenceStep(num + 1);
-            }, 600); // Friendly pause between numbers
-          } else {
-            // Reached 30!
-            Sound.fanfare();
-            Voice.speak('太棒了！1 到 30 已經全部朗讀完畢！你真有耐心！');
-            this.stopAutoPlay();
-          }
-        });
-      },
-
-      stopAutoPlay() {
-        this.isPlaying = false;
-        if (this.timer) clearTimeout(this.timer);
-        Voice.stop();
-        document.getElementById('reading-play-icon').textContent = '▶';
-        document.getElementById('reading-play-text').textContent = '連續慢速朗讀 1~30';
-        document.getElementById('reading-play-btn').className = 'px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 active:scale-95 text-white font-black text-sm rounded-2xl shadow-md transition flex items-center gap-2';
-      }
-    };
-
-    /* -------------------------------------------------------------
-       6. MODULE 2: 正數與倒數冒險 (Forward & Backward Counting)
-       ------------------------------------------------------------- */
-    const CountingModule = {
-      direction: 'forward', // 'forward' (1->30) or 'backward' (30->1)
-      activity: 'stepping', // 'stepping' or 'puzzle'
-      
-      // Stepping Activity State
-      stepCurrentVal: 1,
-      stepTargetVal: 1,
-      
-      // Puzzle Activity State
-      puzzleQIndex: 1,
-      puzzleTargetAnswer: 15,
-
-      init() {
-        this.renderSteppingGrid();
-        this.resetStepping();
-      },
-
-      setDirection(dir) {
-        this.direction = dir;
-        Sound.click();
-
-        const btnFwd = document.getElementById('btn-count-forward');
-        const btnBwd = document.getElementById('btn-count-backward');
-        const badgeStep = document.getElementById('stepping-direction-badge');
-        const badgePuz = document.getElementById('puzzle-direction-badge');
-        const titleStep = document.getElementById('stepping-title-text');
-        const descStep = document.getElementById('stepping-desc-text');
-        const mascotIcon = document.getElementById('stepping-mascot-icon');
-
-        if (dir === 'forward') {
-          btnFwd.className = 'px-4 py-2 rounded-2xl font-black text-xs sm:text-sm bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md border-2 border-emerald-400 flex items-center gap-1.5 active:scale-95 transition';
-          btnBwd.className = 'px-4 py-2 rounded-2xl font-black text-xs sm:text-sm bg-white hover:bg-rose-50 text-rose-700 border-2 border-rose-300 flex items-center gap-1.5 active:scale-95 transition';
-          badgeStep.textContent = '正向＋1';
-          badgeStep.className = 'px-2 py-0.5 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800';
-          badgePuz.textContent = '正數題型 (從小到大)';
-          badgePuz.className = 'px-2 py-0.5 rounded-full text-[11px] font-black bg-emerald-100 text-emerald-800';
-          titleStep.textContent = '正數踩石階梯 (1 ➔ 30)';
-          descStep.textContent = '請依序找出下一個大 1 的數字精靈踩下去，走完 30 步！';
-          mascotIcon.textContent = '🚀';
-          Voice.speak('切換為正數前進模式，從 1 數到 30！');
-        } else {
-          btnFwd.className = 'px-4 py-2 rounded-2xl font-black text-xs sm:text-sm bg-white hover:bg-emerald-50 text-emerald-700 border-2 border-emerald-300 flex items-center gap-1.5 active:scale-95 transition';
-          btnBwd.className = 'px-4 py-2 rounded-2xl font-black text-xs sm:text-sm bg-gradient-to-r from-rose-500 to-amber-500 text-white shadow-md border-2 border-rose-400 flex items-center gap-1.5 active:scale-95 transition';
-          badgeStep.textContent = '倒數－1';
-          badgeStep.className = 'px-2 py-0.5 rounded-full text-[11px] font-black bg-rose-100 text-rose-800';
-          badgePuz.textContent = '倒數題型 (從大到小)';
-          badgePuz.className = 'px-2 py-0.5 rounded-full text-[11px] font-black bg-rose-100 text-rose-800';
-          titleStep.textContent = '倒數發射階梯 (30 ➔ 1)';
-          descStep.textContent = '火箭準備發射！請依序倒數找出少 1 的數字踩下去！';
-          mascotIcon.textContent = '🪐';
-          Voice.speak('切換為倒數發射模式，從 30 倒數到 1！');
-        }
-
-        this.resetStepping();
-        this.loadPuzzleQuestion();
-      },
-
-      switchActivity(act) {
-        this.activity = act;
-        Sound.click();
-        const bStep = document.getElementById('btn-act-stepping');
-        const bPuz = document.getElementById('btn-act-puzzle');
-        const divStep = document.getElementById('count-activity-stepping');
-        const divPuz = document.getElementById('count-activity-puzzle');
-
-        if (act === 'stepping') {
-          bStep.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-black bg-white text-sky-800 shadow-xs transition';
-          bPuz.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-black text-slate-600 hover:text-sky-800 transition';
-          divStep.classList.remove('hidden');
-          divPuz.classList.add('hidden');
-        } else {
-          bPuz.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-black bg-white text-indigo-800 shadow-xs transition';
-          bStep.className = 'flex-1 py-2 rounded-xl text-xs sm:text-sm font-black text-slate-600 hover:text-indigo-800 transition';
-          divStep.classList.add('hidden');
-          divPuz.classList.remove('hidden');
-          this.loadPuzzleQuestion();
-        }
-      },
-
-      // --- Activity A: Stepping Stones ---
-      renderSteppingGrid() {
-        const container = document.getElementById('stepping-grid-container');
-        container.innerHTML = '';
-        for (let i = 1; i <= 30; i++) {
-          const stone = document.createElement('button');
-          stone.id = `step-stone-${i}`;
-          stone.onclick = () => this.handleStoneClick(i);
-          stone.className = 'h-14 sm:h-16 rounded-2xl bg-white border-2 border-slate-200 flex flex-col items-center justify-center p-1 text-slate-700 font-black shadow-xs hover:border-sky-300 transition active:scale-95';
-          stone.innerHTML = `
-            <span class="text-xs">${CUTE_ICONS[i - 1]}</span>
-            <span class="text-base sm:text-lg number-font">${i}</span>
-          `;
-          container.appendChild(stone);
-        }
-      },
-
-      resetStepping() {
-        this.stepTargetVal = (this.direction === 'forward') ? 1 : 30;
-        this.updateSteppingUI();
-      },
-
-      updateSteppingUI() {
-        const target = this.stepTargetVal;
-        document.getElementById('stepping-target-display').textContent = target;
-        document.getElementById('stepping-target-chinese').textContent = CHINESE_NUMS[target];
-
-        // Progress calculate
-        const completedSteps = (this.direction === 'forward') ? (target - 1) : (30 - target);
-        const pct = Math.round((completedSteps / 30) * 100);
-        document.getElementById('stepping-progress-text').textContent = completedSteps;
-        document.getElementById('stepping-percent-text').textContent = `${pct}%`;
-        document.getElementById('stepping-progress-fill').style.width = `${pct}%`;
-
-        // Update stones style
-        for (let i = 1; i <= 30; i++) {
-          const btn = document.getElementById(`step-stone-${i}`);
-          if (!btn) continue;
-          
-          const isPassed = (this.direction === 'forward') ? (i < target) : (i > target);
-          const isCurrent = (i === target);
-
-          if (isPassed) {
-            btn.className = 'h-14 sm:h-16 rounded-2xl bg-emerald-100 border-2 border-emerald-400 text-emerald-800 font-black flex flex-col items-center justify-center p-1 opacity-75';
-            btn.innerHTML = `<span class="text-xs">✅</span><span class="text-base number-font">${i}</span>`;
-          } else if (isCurrent) {
-            btn.className = 'h-14 sm:h-16 rounded-2xl bg-amber-300 border-4 border-amber-500 text-amber-950 font-black flex flex-col items-center justify-center p-1 shadow-lg animate-pulse-glow transform scale-105 z-10';
-            btn.innerHTML = `<span class="text-xs">👉</span><span class="text-lg number-font">${i}</span>`;
-          } else {
-            btn.className = 'h-14 sm:h-16 rounded-2xl bg-white border-2 border-slate-200 text-slate-700 font-black flex flex-col items-center justify-center p-1 shadow-xs hover:border-sky-300 transition active:scale-95';
-            btn.innerHTML = `<span class="text-xs">${CUTE_ICONS[i - 1]}</span><span class="text-base sm:text-lg number-font">${i}</span>`;
-          }
-        }
-      },
-
-      handleStoneClick(clickedNum) {
-        if (clickedNum === this.stepTargetVal) {
-          // Correct Step!
-          Sound.step();
-          Voice.speak(`${clickedNum}`);
-
-          // Next target
-          if (this.direction === 'forward') {
-            if (this.stepTargetVal === 30) {
-              this.completeStepping();
-              return;
-            }
-            this.stepTargetVal++;
-          } else {
-            if (this.stepTargetVal === 1) {
-              this.completeStepping();
-              return;
-            }
-            this.stepTargetVal--;
-          }
-          this.updateSteppingUI();
-        } else {
-          // Wrong Step!
-          Sound.wrong();
-          const btn = document.getElementById(`step-stone-${clickedNum}`);
-          if (btn) {
-            btn.classList.add('animate-shake');
-            setTimeout(() => btn.classList.remove('animate-shake'), 400);
-          }
-          const msgEl = document.getElementById('stepping-feedback-msg');
-          msgEl.innerHTML = `<span class="text-rose-600 font-black animate-bounce">❌ 不是 ${clickedNum} 喔！現在要踩 ${this.stepTargetVal} (${CHINESE_NUMS[this.stepTargetVal]})！</span>`;
-          Voice.speak(`不對喔，要按 ${this.stepTargetVal}！`);
-        }
-      },
-
-      completeStepping() {
-        Sound.fanfare();
-        App.addStars(10);
-        document.getElementById('stepping-progress-text').textContent = '30';
-        document.getElementById('stepping-percent-text').textContent = '100%';
-        document.getElementById('stepping-progress-fill').style.width = '100%';
-
-        const praise = (this.direction === 'forward') 
-          ? '太厲害了！你順利從 1 數到了 30！完成大冒險！獲得 10 顆星星！'
-          : '倒數完畢！3、2、1，火箭成功發射！恭喜倒數闖關成功！獲得 10 顆星星！';
-
-        alert(`🎉 恭喜通關！\n${praise}`);
-        Voice.speak(praise);
-        this.resetStepping();
-      },
-
-      // --- Activity B: Puzzle Missing Numbers ---
-      loadPuzzleQuestion() {
-        document.getElementById('puzzle-curr-q').textContent = this.puzzleQIndex;
-        const isFwd = (this.direction === 'forward');
-
-        // Pick a base number
-        let start;
-        let missingIndex; // 0, 1, 2, or 3
-        if (isFwd) {
-          start = Math.floor(Math.random() * 26) + 1; // 1 to 26 so sequence is start, start+1, start+2, start+3 <= 30
-          missingIndex = Math.floor(Math.random() * 4);
-        } else {
-          start = Math.floor(Math.random() * 26) + 5; // 5 to 30 so sequence is start, start-1, start-2, start-3 >= 1
-          missingIndex = Math.floor(Math.random() * 4);
-        }
-
-        const seq = [];
-        for (let i = 0; i < 4; i++) {
-          const val = isFwd ? (start + i) : (start - i);
-          seq.push(val);
-        }
-
-        this.puzzleTargetAnswer = seq[missingIndex];
-
-        // Render Sequence Cards
-        const row = document.getElementById('puzzle-cards-row');
-        row.innerHTML = '';
-        for (let i = 0; i < 4; i++) {
-          const val = seq[i];
-          const card = document.createElement('div');
-          if (i === missingIndex) {
-            card.className = 'w-16 h-20 sm:w-20 sm:h-24 rounded-2xl bg-amber-100 border-4 border-dashed border-amber-500 flex flex-col items-center justify-center shadow-inner animate-pulse';
-            card.innerHTML = `<span class="text-3xl">❓</span><span class="text-[11px] font-black text-amber-800">缺這個</span>`;
-          } else {
-            card.className = 'w-16 h-20 sm:w-20 sm:h-24 rounded-2xl bg-white border-2 border-indigo-200 flex flex-col items-center justify-center shadow-md';
-            card.innerHTML = `
-              <span class="text-2xl sm:text-3xl font-black text-indigo-900 number-font">${val}</span>
-              <span class="text-xs font-black text-slate-500">${CHINESE_NUMS[val]}</span>
-            `;
-          }
-          row.appendChild(card);
-        }
-
-        // Generate 3 choices (1 correct, 2 distractors)
-        const choices = new Set([this.puzzleTargetAnswer]);
-        while (choices.size < 3) {
-          const delta = (Math.random() > 0.5 ? 1 : -1) * (Math.floor(Math.random() * 3) + 1);
-          let candidate = this.puzzleTargetAnswer + delta;
-          if (candidate < 1) candidate = 1;
-          if (candidate > 30) candidate = 30;
-          if (candidate !== this.puzzleTargetAnswer) {
-            choices.add(candidate);
-          }
-        }
-
-        const choicesArray = Array.from(choices).sort(() => Math.random() - 0.5);
-
-        // Render Balloons Options
-        const optContainer = document.getElementById('puzzle-options-container');
-        optContainer.innerHTML = '';
-        const colors = [
-          'from-pink-400 to-rose-500 border-rose-300',
-          'from-sky-400 to-blue-500 border-sky-300',
-          'from-emerald-400 to-teal-500 border-emerald-300'
-        ];
-
-        choicesArray.forEach((ans, idx) => {
-          const btn = document.createElement('button');
-          btn.onclick = () => this.handlePuzzleAnswer(ans, btn);
-          btn.className = `p-4 rounded-3xl bg-gradient-to-tr ${colors[idx % 3]} text-white border-2 shadow-lg hover:scale-105 active:scale-95 transition flex flex-col items-center justify-center gap-1`;
-          btn.innerHTML = `
-            <span class="text-2xl">🎈</span>
-            <span class="text-2xl sm:text-3xl font-black number-font">${ans}</span>
-            <span class="text-xs font-black bg-white/30 px-2 py-0.5 rounded-full">${CHINESE_NUMS[ans]}</span>
-          `;
-          optContainer.appendChild(btn);
-        });
-
-        Voice.speak(`請觀察數列，選出缺少的數字！`);
-      },
-
-      handlePuzzleAnswer(chosenVal, btn) {
-        if (chosenVal === this.puzzleTargetAnswer) {
-          Sound.correct();
-          App.addStars(5);
-          btn.classList.add('animate-celebrate');
-          Voice.speak(`答對了！缺少的數字就是 ${chosenVal}！`);
-          
-          setTimeout(() => {
-            this.puzzleQIndex++;
-            if (this.puzzleQIndex > 10) {
-              Sound.fanfare();
-              alert('🌟 恭喜你完成了 10 題神秘缺空解密大挑戰！真棒！');
-              this.puzzleQIndex = 1;
-            }
-            this.loadPuzzleQuestion();
-          }, 1200);
-        } else {
-          Sound.wrong();
-          btn.classList.add('animate-shake');
-          setTimeout(() => btn.classList.remove('animate-shake'), 400);
-          Voice.speak(`不對喔，再仔細看一看順序！`);
-        }
-      },
-
-      nextPuzzleQuestion() {
-        Sound.click();
-        this.loadPuzzleQuestion();
-      }
-    };
-
-    /* -------------------------------------------------------------
-       7. MODULE 3: 小小播音員語音辨識 (Speech Recognition & AI Evaluation)
-       ------------------------------------------------------------- */
-    const SpeechModule = {
-      targetNum: 18,
-      recognition: null,
-      isListening: false,
-      isSupported: false,
-
-      init() {
-        this.checkSpeechRecognitionSupport();
-        this.newRandomTarget();
-      },
-
-      checkSpeechRecognitionSupport() {
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (SpeechRecognition) {
-          this.isSupported = true;
-          this.recognition = new SpeechRecognition();
-          this.recognition.lang = 'zh-TW';
-          this.recognition.continuous = false;
-          this.recognition.interimResults = false;
-          this.recognition.maxAlternatives = 3;
-
-          this.recognition.onstart = () => {
-            this.isListening = true;
-            this.updateListeningUI(true);
-            Sound.micPing();
-          };
-
-          this.recognition.onresult = (event) => {
-            const transcript = event.results[0][0].transcript;
-            this.handleRecognitionResult(transcript);
-          };
-
-          this.recognition.onerror = (event) => {
-            console.warn('Speech recognition error', event.error);
-            this.isListening = false;
-            this.updateListeningUI(false);
-            
-            if (event.error === 'not-allowed') {
-              this.showFeedbackCard(false, '麥克風權限未開啟', '請在瀏覽器網址列允許麥克風權限，或直接使用下方的模擬測試按鈕喔！');
-            } else if (event.error === 'no-speech') {
-              this.showFeedbackCard(false, '沒有聽到聲音', '好像太小聲囉！請靠近麥克風大聲再說一次！');
-            }
-          };
-
-          this.recognition.onend = () => {
-            this.isListening = false;
-            this.updateListeningUI(false);
-          };
-        } else {
-          this.isSupported = false;
-          console.info('Web SpeechRecognition not supported in this browser environment. Fallback active.');
-        }
-      },
-
-      newRandomTarget() {
-        this.targetNum = Math.floor(Math.random() * 30) + 1;
-        document.getElementById('speech-target-num').textContent = this.targetNum;
-        document.getElementById('speech-target-chinese').textContent = CHINESE_NUMS[this.targetNum];
-        document.getElementById('speech-target-phonetic').textContent = `(${CHINESE_PINYIN[this.targetNum]})`;
-
-        // Reset display card
-        document.getElementById('speech-transcript-text').textContent = '等待朗讀...';
-        document.getElementById('speech-parsed-val').textContent = '';
-        document.getElementById('speech-verdict-badge').textContent = '等待朗讀';
-        document.getElementById('speech-verdict-badge').className = 'px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 text-[11px]';
-        document.getElementById('speech-feedback-box').classList.add('hidden');
-
-        Sound.click();
-        Voice.speak(`請大聲唸出：${this.targetNum}，${CHINESE_NUMS[this.targetNum]}`);
-      },
-
-      playTargetHint() {
-        Sound.click();
-        Voice.speak(`${this.targetNum}，${CHINESE_NUMS[this.targetNum]}`, null, 0.5); // Very slow demonstration
-      },
-
-      toggleListening() {
-        if (!this.isSupported) {
-          alert('您的瀏覽器目前尚未支援直接語音辨識或權限受限，請點擊下方的「✅ 模擬唸出正確答案」或「❌ 模擬唸錯」按鈕進行體驗！');
-          return;
-        }
-
-        if (this.isListening) {
-          this.recognition.stop();
-        } else {
-          try {
-            Voice.stop();
-            this.recognition.start();
-          } catch (e) {
-            console.warn(e);
-          }
-        }
-      },
-
-      updateListeningUI(listening) {
-        const btn = document.getElementById('mic-action-btn');
-        const icon = document.getElementById('mic-icon');
-        const label = document.getElementById('mic-btn-label');
-        const wave = document.getElementById('mic-pulse-ring');
-        const status = document.getElementById('speech-status-pill');
-
-        if (listening) {
-          btn.className = 'relative z-10 w-24 h-24 rounded-full bg-gradient-to-tr from-rose-600 to-red-600 text-white shadow-2xl border-4 border-rose-300 flex flex-col items-center justify-center gap-1 scale-105';
-          icon.textContent = '🛑';
-          label.textContent = '正在聆聽...';
-          wave.classList.remove('hidden');
-          status.textContent = '🎧 正在聆聽中... 請對著麥克風大聲說出數字！';
-          status.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-rose-100 text-rose-800 border border-rose-300 animate-pulse';
-        } else {
-          btn.className = 'relative z-10 w-24 h-24 rounded-full bg-gradient-to-tr from-rose-500 to-amber-500 hover:from-rose-600 hover:to-amber-600 active:scale-95 text-white shadow-xl border-4 border-white flex flex-col items-center justify-center gap-1 transition-all';
-          icon.textContent = '🎤';
-          label.textContent = '按我說話';
-          wave.classList.add('hidden');
-          status.textContent = '🎙️ 點擊麥克風後，大聲說出數字';
-          status.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-slate-100 text-slate-600 border border-slate-200';
-        }
-      },
-
-      handleRecognitionResult(rawTranscript) {
-        document.getElementById('speech-transcript-text').textContent = `「${rawTranscript}」`;
-        const parsedNum = SpeechParser.parse(rawTranscript);
-
-        if (parsedNum !== null) {
-          document.getElementById('speech-parsed-val').textContent = `(解析數字：${parsedNum} ${CHINESE_NUMS[parsedNum]})`;
-        } else {
-          document.getElementById('speech-parsed-val').textContent = `(未能辨識出數字)`;
-        }
-
-        const isCorrect = (parsedNum === this.targetNum);
-
-        if (isCorrect) {
-          Sound.correct();
-          App.addStars(10);
-          this.showFeedbackCard(true, '太厲害了！發音非常標準！🌟', `辨識為【${parsedNum} ${CHINESE_NUMS[parsedNum]}】，完全吻合！獲得 10 顆星星！`);
-          Voice.speak(`太厲害了！你唸得非常準確，就是 ${this.targetNum}！`);
-          
-          setTimeout(() => {
-            this.newRandomTarget();
-          }, 3200);
-        } else {
-          Sound.wrong();
-          const heardDetail = (parsedNum !== null) ? `你剛才說的是【${parsedNum} ${CHINESE_NUMS[parsedNum]}】` : `剛才聽到的聲音是「${rawTranscript}」`;
-          const msg = `${heardDetail}，跟目標【${this.targetNum} ${CHINESE_NUMS[this.targetNum]}】不同喔！按右上角 🔊 聽聽看示範發音再試一次吧！`;
-          this.showFeedbackCard(false, '快要對了！再試一次喔！', msg);
-          Voice.speak(`差一點點！這題要唸 ${this.targetNum}，${CHINESE_NUMS[this.targetNum]}！`);
-        }
-      },
-
-      showFeedbackCard(isCorrect, title, message) {
-        const badge = document.getElementById('speech-verdict-badge');
-        const box = document.getElementById('speech-feedback-box');
-        const icon = document.getElementById('speech-feedback-icon');
-        const msgEl = document.getElementById('speech-feedback-msg');
-
-        box.classList.remove('hidden');
-
-        if (isCorrect) {
-          badge.textContent = '辨識正確 ✅';
-          badge.className = 'px-2 py-0.5 rounded-md bg-emerald-500 text-white text-[11px] font-black animate-bounce';
-          box.className = 'p-3 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-900 flex items-start gap-2.5 text-xs font-bold animate-celebrate';
-          icon.textContent = '🌟';
-          msgEl.innerHTML = `<div class="font-black text-sm text-emerald-950 mb-0.5">${title}</div><div>${message}</div>`;
-        } else {
-          badge.textContent = '再試一次 ❌';
-          badge.className = 'px-2 py-0.5 rounded-md bg-rose-500 text-white text-[11px] font-black';
-          box.className = 'p-3 rounded-xl bg-rose-100 border border-rose-300 text-rose-900 flex items-start gap-2.5 text-xs font-bold animate-shake';
-          icon.textContent = '💪';
-          msgEl.innerHTML = `<div class="font-black text-sm text-rose-950 mb-0.5">${title}</div><div>${message}</div>`;
-        }
-      },
-
-      // Fallback simulation for environments with blocked mic or no mic
-      simulateSpeech(isCorrect) {
-        Sound.click();
-        const simulatedWord = isCorrect ? CHINESE_NUMS[this.targetNum] : CHINESE_NUMS[(this.targetNum % 30) + 1];
-        this.handleRecognitionResult(simulatedWord);
-      }
-    };
-
-    /* -------------------------------------------------------------
-       8. MAIN APPLICATION CONTROLLER
-       ------------------------------------------------------------- */
-    const App = {
-      stars: 0,
-      currentTab: 'tab-reading',
-
-      init() {
-        const saved = localStorage.getItem('counting_game_stars');
-        if (saved) this.stars = parseInt(saved, 10) || 0;
-        document.getElementById('global-stars-text').textContent = this.stars;
-
-        // Initialize sub-modules
-        ReadingModule.init();
-        CountingModule.init();
-        SpeechModule.init();
+        const saved = localStorage.getItem('counting_game_coins');
+        if (saved) this.coins = parseInt(saved, 10) || 0;
+        document.getElementById('global-coins-text').textContent = this.coins;
+
+        Round1.init();
+        Round2.init();
 
         this.bindEvents();
+
+        // Auto trigger Round 1 intro animation on fresh launch
+        setTimeout(() => {
+          Round1.showIntroAnimation();
+        }, 400);
       },
 
-      addStars(pts) {
-        this.stars += pts;
-        document.getElementById('global-stars-text').textContent = this.stars;
-        localStorage.setItem('counting_game_stars', this.stars);
+      addCoins(amount) {
+        this.coins += amount;
+        document.getElementById('global-coins-text').textContent = this.coins;
+        localStorage.setItem('counting_game_coins', this.coins);
       },
 
-      switchTab(tabId) {
+      switchRound(roundNum) {
         Voice.stop();
-        ReadingModule.stopAutoPlay();
+        Round1.stopAnimation();
         Sound.click();
+        this.currentRound = roundNum;
 
-        ['tab-reading', 'tab-counting', 'tab-speech'].forEach(id => {
-          document.getElementById(id).classList.add('hidden');
-        });
+        const btn1 = document.getElementById('btn-round-1');
+        const btn2 = document.getElementById('btn-round-2');
+        const view1 = document.getElementById('round-1-view');
+        const view2 = document.getElementById('round-2-view');
 
-        document.getElementById(tabId).classList.remove('hidden');
+        if (roundNum === 1) {
+          btn1.className = 'py-3 px-3 sm:px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-emerald-400 bg-emerald-500 text-white';
+          btn2.className = 'py-3 px-3 sm:px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-sky-300 bg-white hover:bg-sky-50 text-slate-700';
+          view1.classList.remove('hidden');
+          view2.classList.add('hidden');
+          Round1.loadQuestion();
+        } else {
+          btn1.className = 'py-3 px-3 sm:px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-emerald-300 bg-white hover:bg-emerald-50 text-slate-700';
+          btn2.className = 'py-3 px-3 sm:px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-sky-400 bg-sky-500 text-white';
+          view1.classList.add('hidden');
+          view2.classList.remove('hidden');
+          Round2.loadQuestion();
+        }
+      },
 
-        // Update tab buttons styles
-        const bRead = document.getElementById('btn-tab-reading');
-        const bCount = document.getElementById('btn-tab-counting');
-        const bSpeech = document.getElementById('btn-tab-speech');
+      // Unified Feedback Modal (Cash Register Cha-Ching or Cry Face)
+      showFeedback(isCorrect, title, bodyHtml, options = {}) {
+        const modal = document.getElementById('feedback-modal');
+        const card = document.getElementById('feedback-card');
+        const icon = document.getElementById('feedback-icon');
+        const titleEl = document.getElementById('feedback-title');
+        const bodyEl = document.getElementById('feedback-body');
+        const replayBtn = document.getElementById('feedback-replay-btn');
+        const actionBtn = document.getElementById('feedback-action-btn');
 
-        bRead.className = 'py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-emerald-300 bg-white hover:bg-emerald-50 text-slate-700';
-        bCount.className = 'py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-sky-300 bg-white hover:bg-sky-50 text-slate-700';
-        bSpeech.className = 'py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-rose-300 bg-white hover:bg-rose-50 text-slate-700';
+        modal.classList.remove('hidden');
 
-        if (tabId === 'tab-reading') {
-          bRead.className = 'py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-emerald-400 bg-emerald-500 text-white';
-          Voice.speak('歡迎來到慢速朗讀森林！');
-        } else if (tabId === 'tab-counting') {
-          bCount.className = 'py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-sky-400 bg-sky-500 text-white';
-          Voice.speak('歡迎來到正數與倒數冒險！');
-        } else if (tabId === 'tab-speech') {
-          bSpeech.className = 'py-3 px-4 rounded-2xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-sm border-2 border-rose-400 bg-rose-500 text-white';
-          Voice.speak('歡迎來到小小播音員辨識舞台！');
+        if (isCorrect) {
+          Sound.cashRegister();
+          this.addCoins(10);
+
+          icon.textContent = '🪙';
+          icon.className = 'text-6xl mx-auto animate-coin';
+          titleEl.textContent = title || '答對了！收銀機開箱囉！';
+          titleEl.className = 'text-xl sm:text-2xl font-black text-emerald-600';
+          card.className = 'bg-white rounded-3xl p-5 sm:p-6 max-w-md w-full shadow-2xl border-4 border-emerald-400 text-center flex flex-col gap-4 relative animate-coin';
+
+          bodyEl.innerHTML = `
+            ${bodyHtml}
+            <div class="mt-3 py-2 px-3 bg-amber-50 rounded-2xl border border-amber-300 flex items-center justify-center gap-2 text-amber-800 font-black">
+              <span>叮噹～喀擦！</span>
+              <span class="text-base text-amber-600">+10 錢幣已存入撲滿！💰</span>
+            </div>
+          `;
+          replayBtn.classList.add('hidden');
+          actionBtn.textContent = '下一題 ➔';
+          actionBtn.className = 'flex-1 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-sm shadow-md transition active:scale-95';
+        } else {
+          Sound.crySound();
+
+          icon.textContent = '😭';
+          icon.className = 'text-6xl mx-auto animate-cry';
+          titleEl.textContent = title || '答錯了～哭哭！';
+          titleEl.className = 'text-xl sm:text-2xl font-black text-rose-600';
+          card.className = 'bg-white rounded-3xl p-5 sm:p-6 max-w-md w-full shadow-2xl border-4 border-rose-400 text-center flex flex-col gap-4 relative animate-shake';
+
+          bodyEl.innerHTML = `
+            ${bodyHtml}
+            <div class="mt-2 text-xs text-slate-400">
+              別灰心！仔細觀察並學習正確答案，下一題一定會答對！
+            </div>
+          `;
+
+          if (options.replaySpeechText) {
+            replayBtn.classList.remove('hidden');
+            replayBtn.onclick = () => {
+              Voice.speak(options.replaySpeechText);
+            };
+          } else {
+            replayBtn.classList.add('hidden');
+          }
+
+          actionBtn.textContent = '我知道了，下一題 ➔';
+          actionBtn.className = 'flex-1 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-amber-500 text-white font-black text-sm shadow-md transition active:scale-95';
+        }
+      },
+
+      closeFeedbackAndNext() {
+        document.getElementById('feedback-modal').classList.add('hidden');
+        if (this.currentRound === 1) {
+          Round1.nextQuestion();
+        } else {
+          Round2.nextQuestion();
+        }
+      },
+
+      showRoundComplete(correctCount) {
+        document.getElementById('stat-correct-count').textContent = `${correctCount} / 10 題`;
+        document.getElementById('stat-coins-earned').textContent = `+${correctCount * 10} 🪙`;
+        document.getElementById('round-complete-modal').classList.remove('hidden');
+        Sound.cashRegister();
+        Voice.speak(`恭喜完成十題挑戰！一共答對 ${correctCount} 題！獲得 ${correctCount * 10} 枚錢幣！`);
+      },
+
+      restartCurrentRound() {
+        document.getElementById('round-complete-modal').classList.add('hidden');
+        if (this.currentRound === 1) {
+          Round1.startRound();
+        } else {
+          Round2.startRound();
         }
       },
 
@@ -1424,9 +806,419 @@
       }
     };
 
-    // Bootstrap app on DOMContentLoaded
+    /* -------------------------------------------------------------
+       5. ROUND 1: 數量數數店長 (Quantity Counting & 1-30 Animation)
+       ------------------------------------------------------------- */
+    const Round1 = {
+      qIndex: 1,
+      correctCount: 0,
+      currentCount: 15,
+      currentTheme: THEMES[0],
+      markedIndices: new Set(),
+      animTimer: null,
+      isAnimPlaying: false,
+
+      init() {
+        this.startRound();
+      },
+
+      startRound() {
+        this.qIndex = 1;
+        this.correctCount = 0;
+        this.loadQuestion();
+      },
+
+      // --- Intro 1-30 Animation ---
+      showIntroAnimation() {
+        const modal = document.getElementById('intro-modal');
+        modal.classList.remove('hidden');
+        this.isAnimPlaying = true;
+        this.runIntroStep(1);
+      },
+
+      runIntroStep(step) {
+        if (!this.isAnimPlaying) return;
+
+        const card = document.getElementById('intro-bouncing-card');
+        const numText = document.getElementById('intro-number-text');
+        const cnText = document.getElementById('intro-chinese-text');
+        const iconEl = document.getElementById('intro-item-icon');
+        const stepEl = document.getElementById('intro-curr-step');
+        const pctEl = document.getElementById('intro-percent-text');
+        const barEl = document.getElementById('intro-progress-bar');
+
+        numText.textContent = step;
+        cnText.textContent = CHINESE_NUMS[step];
+        iconEl.textContent = THEMES[(step - 1) % THEMES.length].icon;
+        stepEl.textContent = step;
+        
+        const pct = Math.round((step / 30) * 100);
+        pctEl.textContent = `${pct}%`;
+        barEl.style.width = `${pct}%`;
+
+        // Card bounce animation
+        card.classList.remove('scale-110');
+        void card.offsetWidth;
+        card.classList.add('scale-110');
+
+        Voice.speak(`${step}`, () => {
+          if (!this.isAnimPlaying) return;
+          if (step < 30) {
+            this.animTimer = setTimeout(() => {
+              this.runIntroStep(step + 1);
+            }, 600);
+          } else {
+            // Finished 30!
+            Sound.cashRegister();
+            Voice.speak('太棒了！1 到 30 朗讀完畢！開始看數量選數字大挑戰吧！');
+            setTimeout(() => {
+              this.skipIntroAnimation();
+            }, 1200);
+          }
+        });
+      },
+
+      replayIntroAnimation() {
+        this.stopAnimation();
+        this.isAnimPlaying = true;
+        this.runIntroStep(1);
+      },
+
+      stopAnimation() {
+        this.isAnimPlaying = false;
+        if (this.animTimer) clearTimeout(this.animTimer);
+        Voice.stop();
+      },
+
+      skipIntroAnimation() {
+        this.stopAnimation();
+        document.getElementById('intro-modal').classList.add('hidden');
+        this.speakPrompt();
+      },
+
+      // --- Main Gameplay ---
+      loadQuestion() {
+        document.getElementById('r1-q-curr').textContent = this.qIndex;
+        this.markedIndices.clear();
+        document.getElementById('r1-marked-count').textContent = '0';
+
+        // Pick random quantity 1 to 30
+        this.currentCount = Math.floor(Math.random() * 30) + 1;
+        this.currentTheme = THEMES[Math.floor(Math.random() * THEMES.length)];
+
+        document.getElementById('r1-theme-icon').textContent = this.currentTheme.icon;
+        document.getElementById('r1-theme-name').textContent = this.currentTheme.name;
+
+        // Render Items on Tray
+        const tray = document.getElementById('r1-items-tray');
+        tray.innerHTML = '';
+        for (let i = 1; i <= this.currentCount; i++) {
+          const item = document.createElement('button');
+          item.id = `r1-item-${i}`;
+          item.className = 'w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-amber-50 hover:bg-amber-100 border-2 border-amber-200 flex flex-col items-center justify-center text-xl sm:text-2xl shadow-xs transition transform hover:scale-110 active:scale-95 relative';
+          item.innerHTML = `<span>${this.currentTheme.icon}</span>`;
+          item.title = `第 ${i} 個，點擊可蓋印章`;
+          item.onclick = () => this.toggleItemMark(i, item);
+          tray.appendChild(item);
+        }
+
+        // Render 4 Multiple Choice Options
+        this.renderOptions();
+      },
+
+      toggleItemMark(index, el) {
+        Sound.popStamp();
+        if (this.markedIndices.has(index)) {
+          this.markedIndices.delete(index);
+          el.innerHTML = `<span>${this.currentTheme.icon}</span>`;
+          el.classList.remove('bg-emerald-100', 'border-emerald-400');
+        } else {
+          this.markedIndices.add(index);
+          el.classList.add('bg-emerald-100', 'border-emerald-400');
+          el.innerHTML = `
+            <span>${this.currentTheme.icon}</span>
+            <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+              ${this.markedIndices.size}
+            </span>
+          `;
+        }
+        document.getElementById('r1-marked-count').textContent = this.markedIndices.size;
+      },
+
+      clearItemMarks() {
+        Sound.click();
+        this.markedIndices.clear();
+        document.getElementById('r1-marked-count').textContent = '0';
+        for (let i = 1; i <= this.currentCount; i++) {
+          const el = document.getElementById(`r1-item-${i}`);
+          if (el) {
+            el.innerHTML = `<span>${this.currentTheme.icon}</span>`;
+            el.classList.remove('bg-emerald-100', 'border-emerald-400');
+          }
+        }
+      },
+
+      renderOptions() {
+        const container = document.getElementById('r1-options-container');
+        container.innerHTML = '';
+
+        // Generate 4 unique choices
+        const choices = new Set([this.currentCount]);
+        while (choices.size < 4) {
+          const delta = (Math.random() > 0.5 ? 1 : -1) * (Math.floor(Math.random() * 4) + 1);
+          let candidate = this.currentCount + delta;
+          if (candidate < 1) candidate = 1;
+          if (candidate > 30) candidate = 30;
+          choices.add(candidate);
+        }
+
+        const choicesArr = Array.from(choices).sort(() => Math.random() - 0.5);
+
+        choicesArr.forEach(val => {
+          const btn = document.createElement('button');
+          btn.className = 'py-3.5 px-4 rounded-2xl bg-white hover:bg-emerald-50 active:scale-95 border-2 border-emerald-300 hover:border-emerald-500 shadow-md transition flex flex-col items-center justify-center gap-0.5 group';
+          btn.innerHTML = `
+            <span class="text-2xl sm:text-3xl font-black text-slate-800 group-hover:text-emerald-700 number-font">${val}</span>
+            <span class="text-xs font-black text-slate-400 group-hover:text-emerald-600">${CHINESE_NUMS[val]}</span>
+          `;
+          btn.onclick = () => this.handleAnswer(val);
+          container.appendChild(btn);
+        });
+      },
+
+      handleAnswer(chosenVal) {
+        const correct = this.currentCount;
+        if (chosenVal === correct) {
+          this.correctCount++;
+          const body = `
+            <div class="text-slate-700 font-bold">
+              盤子裡一共有 <strong class="text-emerald-600 text-lg">${correct}</strong> 個${this.currentTheme.name}！
+            </div>
+            <p class="text-xs text-slate-500 mt-1">
+              算得非常準確，你是一位優秀的數數小店長！
+            </p>
+          `;
+          Voice.speak(`答對了！一共有 ${correct} 個${this.currentTheme.name}！收銀機開箱囉！`);
+          Game.showFeedback(true, '出貨成功！數量完全吻合！', body);
+        } else {
+          const diff = Math.abs(chosenVal - correct);
+          const diffText = chosenVal > correct ? `多算了 ${diff} 個` : `少算了 ${diff} 個`;
+          const body = `
+            <div class="text-slate-700 font-bold">
+              你選了 <strong class="text-rose-600 text-lg">${chosenVal}</strong>（${diffText}）！
+            </div>
+            <div class="mt-2 p-3 bg-amber-100/90 rounded-2xl border border-amber-300 text-amber-900 text-xs font-bold leading-relaxed">
+              💡 <strong>學習回饋：</strong><br>
+              盤子裡的【${this.currentTheme.name}】正確數量其實是：
+              <span class="text-base text-rose-700 font-black">${correct} (${CHINESE_NUMS[correct]})</span> 個！
+            </div>
+          `;
+          Voice.speak(`答錯了～哭哭！正確數量是 ${correct} 個喔！`);
+          Game.showFeedback(false, '數量不符！哭哭 😭', body, {
+            replaySpeechText: `正確數量是 ${correct} 個${this.currentTheme.name}`
+          });
+        }
+      },
+
+      speakPrompt() {
+        Voice.speak(`請數數看，盤子裡一共有多少個${this.currentTheme.name}？`);
+      },
+
+      nextQuestion(manual = false) {
+        if (manual) Sound.click();
+        this.qIndex++;
+        if (this.qIndex > 10) {
+          Game.showRoundComplete(this.correctCount);
+        } else {
+          this.loadQuestion();
+          if (!manual) this.speakPrompt();
+        }
+      }
+    };
+
+    /* -------------------------------------------------------------
+       6. ROUND 2: 神秘聽力填空 (Listening Blank - NO Number in Blank)
+       ------------------------------------------------------------- */
+    const Round2 = {
+      qIndex: 1,
+      correctCount: 0,
+      targetNum: 16,
+      listeningSpeed: 0.65,
+      playCount: 0,
+      isSpeaking: false,
+
+      init() {
+        this.startRound();
+      },
+
+      startRound() {
+        this.qIndex = 1;
+        this.correctCount = 0;
+        this.loadQuestion();
+      },
+
+      setSpeed(rate, btn) {
+        Sound.click();
+        this.listeningSpeed = rate;
+        document.querySelectorAll('.r2-speed-btn').forEach(b => {
+          b.className = 'r2-speed-btn px-2 py-0.5 rounded-lg bg-white text-sky-700 border border-sky-200 text-[11px]';
+        });
+        btn.className = 'r2-speed-btn px-2 py-0.5 rounded-lg bg-sky-600 text-white text-[11px]';
+        Voice.speak(`朗讀速度調整為${rate === 0.5 ? '超慢' : '慢速'}發音`);
+      },
+
+      loadQuestion() {
+        document.getElementById('r2-q-curr').textContent = this.qIndex;
+        this.playCount = 0;
+
+        // Reset blank slot visual: MUST BE STRICTLY EMPTY!
+        const slot = document.getElementById('r2-blank-slot');
+        const icon = document.getElementById('r2-slot-icon');
+        const text = document.getElementById('r2-slot-text');
+
+        slot.className = 'w-48 h-32 sm:w-56 sm:h-36 rounded-3xl bg-white border-4 border-dashed border-sky-400 shadow-lg flex flex-col items-center justify-center gap-1 relative transition-all duration-300';
+        icon.textContent = '❓';
+        icon.className = 'text-3xl animate-bounce';
+        text.textContent = '[ 聽聲音填空 ]';
+        text.className = 'text-base sm:text-lg font-black text-sky-800';
+
+        // Pick random number between 1 and 30
+        this.targetNum = Math.floor(Math.random() * 30) + 1;
+
+        // Render 4 Options
+        this.renderOptions();
+
+        // 朗讀只要一次：題目載入後自動清晰朗讀一次，並生成按鍵供玩家選擇要不要再朗讀
+        setTimeout(() => {
+          this.playAudioOnce();
+        }, 350);
+      },
+
+      playAudioOnce() {
+        this.playCount++;
+        this.isSpeaking = true;
+
+        const statusPill = document.getElementById('r2-speech-status-pill');
+        const statusText = document.getElementById('r2-speech-status-text');
+        const btnLabel = document.getElementById('r2-replay-btn-label');
+        const waves = document.getElementById('r2-sound-waves');
+        const counterText = document.getElementById('r2-replay-counter-text');
+        const questionPrompt = document.getElementById('r2-replay-question-prompt');
+
+        statusPill.className = 'px-3.5 py-1 rounded-full text-xs font-black bg-amber-100 text-amber-900 border border-amber-300 flex items-center gap-1.5 animate-pulse';
+        statusText.textContent = `🎧 正在為你朗讀題目（只朗讀一次）...`;
+        questionPrompt.textContent = `朗讀進行中，請仔細聽...`;
+        btnLabel.textContent = `🔊 正在朗讀中...`;
+        waves.classList.remove('hidden');
+        counterText.textContent = `題目只會主動朗讀 1 次，請注意聆聽！`;
+
+        const num = this.targetNum;
+        Voice.speak(`請聽題目：${num}，${CHINESE_NUMS[num]}`, () => {
+          this.isSpeaking = false;
+          waves.classList.add('hidden');
+          statusPill.className = 'px-3.5 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1.5';
+          statusText.textContent = `👂 題目朗讀完畢（已朗讀 ${this.playCount} 次）`;
+          questionPrompt.textContent = `聽清楚了嗎？要不要再朗讀一次？`;
+          btnLabel.textContent = `🔁 我要再朗讀一次`;
+          counterText.innerHTML = `已朗讀 <strong class="text-sky-600">${this.playCount}</strong> 次・聽清楚了可以直接在下方點選答案，或按按鍵再朗讀一次！`;
+        }, this.listeningSpeed);
+      },
+
+      // 玩家點擊選擇是否要再朗讀一次
+      chooseReplay() {
+        Sound.click();
+        Voice.stop();
+        this.playAudioOnce();
+      },
+
+      renderOptions() {
+        const container = document.getElementById('r2-options-container');
+        container.innerHTML = '';
+
+        // Generate 4 choices
+        const choices = new Set([this.targetNum]);
+        while (choices.size < 4) {
+          const delta = (Math.random() > 0.5 ? 1 : -1) * (Math.floor(Math.random() * 4) + 1);
+          let candidate = this.targetNum + delta;
+          if (candidate < 1) candidate = 1;
+          if (candidate > 30) candidate = 30;
+          choices.add(candidate);
+        }
+
+        const choicesArr = Array.from(choices).sort(() => Math.random() - 0.5);
+
+        choicesArr.forEach(val => {
+          const btn = document.createElement('button');
+          btn.className = 'py-4 px-4 rounded-2xl bg-white hover:bg-sky-50 active:scale-95 border-2 border-sky-300 hover:border-sky-500 shadow-md transition flex flex-col items-center justify-center gap-0.5 group';
+          btn.innerHTML = `
+            <span class="text-2xl sm:text-3xl font-black text-slate-800 group-hover:text-sky-700 number-font">${val}</span>
+            <span class="text-xs font-black text-slate-400 group-hover:text-sky-600">${CHINESE_NUMS[val]}</span>
+          `;
+          btn.onclick = () => this.handleAnswer(val);
+          container.appendChild(btn);
+        });
+      },
+
+      handleAnswer(chosenVal) {
+        Voice.stop();
+        const correct = this.targetNum;
+
+        if (chosenVal === correct) {
+          this.correctCount++;
+
+          // Reveal slot with gold glow
+          const slot = document.getElementById('r2-blank-slot');
+          const icon = document.getElementById('r2-slot-icon');
+          const text = document.getElementById('r2-slot-text');
+
+          slot.className = 'w-48 h-32 sm:w-56 sm:h-36 rounded-3xl bg-emerald-50 border-4 border-emerald-500 shadow-xl flex flex-col items-center justify-center gap-1 relative animate-coin';
+          icon.textContent = '🌟';
+          text.innerHTML = `<span class="text-4xl text-emerald-600 font-black number-font">${correct}</span><span class="text-sm text-emerald-800 font-black">${CHINESE_NUMS[correct]}</span>`;
+
+          const body = `
+            <div class="text-slate-700 font-bold">
+              你聽到的聲音正是 <strong class="text-emerald-600 text-lg">${correct} (${CHINESE_NUMS[correct]})</strong>！
+            </div>
+            <p class="text-xs text-slate-500 mt-1">
+              耳朵太靈敏了！空格裡的神秘數字成功填入！
+            </p>
+          `;
+          Voice.speak(`太厲害了！你聽到的就是 ${correct}，${CHINESE_NUMS[correct]}！收銀機開箱囉！`);
+          Game.showFeedback(true, '聽力辨識正確！開箱成功！', body);
+        } else {
+          const body = `
+            <div class="text-slate-700 font-bold">
+              你選了 <strong class="text-rose-600 text-lg">${chosenVal} (${CHINESE_NUMS[chosenVal]})</strong>！
+            </div>
+            <div class="mt-2 p-3 bg-amber-100/90 rounded-2xl border border-amber-300 text-amber-900 text-xs font-bold leading-relaxed">
+              💡 <strong>學習回饋：</strong><br>
+              剛才朗讀的正確聲音是：
+              <span class="text-base text-rose-700 font-black">${correct} (${CHINESE_NUMS[correct]})</span>！<br>
+              <span class="text-[11px] text-slate-600">可以點擊下方「🔊 再聽一次發音」反覆練習聆聽差異喔！</span>
+            </div>
+          `;
+          Voice.speak(`答錯了～哭哭！剛才唸的正確數字是 ${correct}！`);
+          Game.showFeedback(false, '聽力不符！哭哭 😭', body, {
+            replaySpeechText: `剛才朗讀的正確數字是 ${correct}，${CHINESE_NUMS[correct]}`
+          });
+        }
+      },
+
+      nextQuestion(manual = false) {
+        if (manual) Sound.click();
+        Voice.stop();
+        this.qIndex++;
+        if (this.qIndex > 10) {
+          Game.showRoundComplete(this.correctCount);
+        } else {
+          this.loadQuestion();
+        }
+      }
+    };
+
+    // Initialize application on DOM ready
     window.addEventListener('DOMContentLoaded', () => {
-      App.init();
+      Game.init();
     });
   </script>
 </body>
